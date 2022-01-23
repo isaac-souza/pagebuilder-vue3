@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "daisyui": "^1.24.3",
     "uuid": "^8.3.2",
     "vue": "^3.2.25",
