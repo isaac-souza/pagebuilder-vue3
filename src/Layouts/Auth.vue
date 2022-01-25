@@ -13,3 +13,15 @@
         </div>
     </section>
 </template>
+
+<script>
+    import { defineComponent } from 'vue'
+
+    export default defineComponent({
+        name: 'AuthLayout',
+        setup() {
+            
+        },
+    })
+</script>
+
