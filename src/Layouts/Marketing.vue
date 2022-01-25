@@ -7,15 +7,15 @@
         </div> 
         <div class="flex-1 px-2 mx-2">
             <div class="items-stretch hidden lg:flex">
-                <a class="btn btn-ghost rounded-btn">
+                <router-link to="/" class="btn btn-ghost rounded-btn">
                     Home
-                </a>
-                <a class="btn btn-ghost rounded-btn">
+                </router-link>
+                <router-link to="/pricing" class="btn btn-ghost rounded-btn">
                     Pricing
-                </a>
-                <a class="btn btn-ghost rounded-btn">
+                </router-link>
+                <router-link to="/contact" class="btn btn-ghost rounded-btn">
                     Contact
-                </a>
+                </router-link>
             </div>
         </div> 
         <div class="flex justify-end gap-x-2">
@@ -28,5 +28,7 @@
         </div>
     </div>
 
-    <slot/>
+    <div class="max-w-6xl mx-auto">
+        <slot/>
+    </div>
 </template>
