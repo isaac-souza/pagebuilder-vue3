@@ -19,7 +19,9 @@
         </div> 
     </div>
 
-    <slot/>
+    <div class="max-w-5xl mx-auto py-8 space-y-4">
+        <slot/>
+    </div>
 </template>
 
 <script>
