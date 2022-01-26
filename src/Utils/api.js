@@ -37,7 +37,7 @@ const Api = {
             await axios.get('/sanctum/csrf-cookie')
             const response = await axios.post('/register', data)
 
-            if(response.status == 200) {
+            if(response.status == 201) {
                 return true
             }
 
@@ -52,6 +52,7 @@ const Api = {
         try {
             await axios.get('/sanctum/csrf-cookie')
             const response = await axios.get('/api/v1/auth/check')
+            
             return response.data.authenticated
         } catch (error) {
             return false
@@ -62,6 +63,7 @@ const Api = {
         try {
             await axios.get('/sanctum/csrf-cookie')
             const response = await axios.get('/api/v1/landing-pages')
+
             return response.data.data
         } catch (error) {
             return null
@@ -72,6 +74,7 @@ const Api = {
         try {
             await axios.get('/sanctum/csrf-cookie')
             const response = await axios.get('/api/v1/landing-pages/' + uuid)
+
             return response.data.data
         } catch (error) {
             return null
@@ -79,10 +82,10 @@ const Api = {
     },
 
     fetchAccount: async () => {
-        await axios.get('/sanctum/csrf-cookie')
-            
         try {
+            await axios.get('/sanctum/csrf-cookie')
             const response = await axios.get('/api/v1/auth/account')
+
             return response.data.data
         } catch (error) {
             return null
@@ -90,10 +93,10 @@ const Api = {
     },
 
     updateLandingPage: async (uuid, data) => {
-        await axios.get('/sanctum/csrf-cookie')
-            
         try {
-            const response = await axios.put('/api/v1/landing-pages/' + uuid, data)
+            await axios.get('/sanctum/csrf-cookie')
+            const response = await axios.put('/api/v1/landing-pages/' + uuid, {pages: data})
+
             return response.data
         } catch (error) {
             return null
@@ -101,10 +104,10 @@ const Api = {
     },
 
     updateDraft: async (uuid, data) => {
-        await axios.get('/sanctum/csrf-cookie')
-            
         try {
-            const response = await axios.put('/api/v1/landing-pages/' + uuid + '/draft', data)
+            await axios.get('/sanctum/csrf-cookie')
+            const response = await axios.put('/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
+
             return response.data
         } catch (error) {
             return null
