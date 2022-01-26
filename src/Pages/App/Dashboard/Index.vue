@@ -1,5 +1,5 @@
 <template>
-    <AppLayout :loading="loading">
+    <AppLayout>
         <div class="flex flex-col items-end md:flex-row md:justify-between md:items-center mb-8">
             <div>
                 <h2 class="text-2xl font-normal text-gray-600">My landing pages</h2>
@@ -24,7 +24,7 @@
                             <a :href="'/' + landingPage.slug" target="_blank" class="btn btn-square btn-sm btn-outline btn-primary">
                                 <Icon name="external-link" styles="w-3 h-3"/>
                             </a>
-                            <router-link :to="'/app/' + landingPage.uuid + '/builder'" class="btn btn-square btn-sm btn-outline btn-primary">
+                            <router-link :to="'/app/landing-pages/' + landingPage.uuid + '/builder'" class="btn btn-square btn-sm btn-outline btn-primary">
                                 <Icon name="edit" styles="w-3 h-3"/>
                             </router-link>
                             <button class="btn btn-square btn-sm btn-outline btn-error">
@@ -53,20 +53,15 @@
         },
         setup() {
             const landingPages = ref({})
-            const loading = ref(false)
 
             onMounted(() => {
-                loading.value = true
-
                 Api.fetchLandingPages()
                     .then(result => {
                         landingPages.value = result
                     })
-
-                loading.value = false
             })
 
-            return { loading, landingPages}
+            return { landingPages}
         },
     })
 </script>
