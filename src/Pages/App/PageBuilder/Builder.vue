@@ -44,17 +44,17 @@
             </div>
             <div class="w-5/6 bg-slate-800 pb-48">
                 <div class="px-4 pt-4 gap-x-2 flex justify-end">
-                    <button class="btn btn-sm btn-success">
+                    <a :href="'/app/landing-pages/' + route.params.uuid + '/preview'" target="_blank" class="btn btn-sm btn-success">
                         <Icon styles="w-4 h-4" name="external-link"/>
-                        <span class="ml-1 font-normal text-xs">Visualizar</span>
-                    </button>
+                        <span class="ml-1 font-normal text-xs">Preview</span>
+                    </a>
                     <button @click="save()" class="btn btn-sm btn-info">
                         <Icon styles="w-4 h-4" name="save"/>
-                        <span class="ml-1 font-normal text-xs">Salvar</span>
+                        <span class="ml-1 font-normal text-xs">Save</span>
                     </button>
-                    <button @click="save()" class="btn btn-sm btn-error">
+                    <button @click="publish()" class="btn btn-sm btn-error">
                         <Icon styles="w-5 h-5" name="upload"/>
-                        <span class="ml-1 font-normal text-xs">Publicar</span>
+                        <span class="ml-1 font-normal text-xs">Publish</span>
                     </button>
                 </div>
                 <div class="p-4">
@@ -81,7 +81,7 @@
     import Icon from '../../../Components/Icon.vue'
 
     export default {
-        name: 'App',
+        name: 'PageBuilder',
         components: {
             BlockRenderer,
             Draggable,
@@ -171,14 +171,18 @@
             onMounted(async () => {
                 const result = await Api.fetchLandingPage(route.params.uuid)
 
-                page.value = result.pages.mainPage
+                page.value = result.draft.main
             })
 
             const save = async () => {
+                await Api.updateDraft(route.params.uuid, page.value)
+            }
+
+            const publish = async () => {
                 await Api.updateLandingPage(route.params.uuid, page.value)
             }
 
-            return { heroes, features, page, cloneBlock, deleteBlock, save }
+            return { heroes, features, page, cloneBlock, deleteBlock, save, publish, route }
         },
     }
 </script>
