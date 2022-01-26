@@ -7,7 +7,9 @@ import Register from '../Pages/Auth/Register.vue'
 
 import App from '../Pages/App/App.vue'
 import Dashboard from '../Pages/App/Dashboard/Index.vue'
+
 import PageBuilder from '../Pages/App/PageBuilder/Builder.vue'
+import PagePreview from '../Pages/App/PageBuilder/Preview.vue'
 
 import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 
@@ -86,6 +88,14 @@ const routes = [
                 path: '/app/landing-pages/:uuid/builder',
                 name: 'PageBuilder',
                 component: PageBuilder,
+                beforeEnter: (to, from, next) => {
+                    return Middleware.auth(to, from, next)
+                },
+            },
+            {
+                path: '/app/landing-pages/:uuid/preview',
+                name: 'PagePreview',
+                component: PagePreview,
                 beforeEnter: (to, from, next) => {
                     return Middleware.auth(to, from, next)
                 },
