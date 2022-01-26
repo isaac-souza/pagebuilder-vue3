@@ -1,9 +1,7 @@
 <template>
     <div class="relative">
         <div class="pl-14">
-            <ImageLeft v-if="block.id == 1" :block="block"/>
-            <FormLeft v-if="block.id == 2" :block="block"/>
-            <VideoCenter v-if="block.id == 3" :block="block"/>
+            <component :is="block.componentName" :block="block"/>
         </div>
 
         <div class="absolute top-0 left-0 flex flex-col py-2 space-y-2 text-white bg-gray-700 rounded-md">
@@ -44,10 +42,12 @@
     import { ref } from 'vue'
     import Icon from './../Icon.vue'
     import Modal from './../Modal.vue'
-    import ImageLeft from './Heroes/ImageLeft.vue'
+    
+    import HeroImageLeft from './Heroes/ImageLeft.vue'
+    import HeroFormLeft from './Heroes/FormLeft.vue'
+    import HeroVideoCenter from './Heroes/VideoCenter.vue'
+
     import ImageLeftEditForm from './Heroes/ImageLeftEditForm.vue'
-    import FormLeft from './Heroes/FormLeft.vue'
-    import VideoCenter from './Heroes/VideoCenter.vue'
 
     export default {
         name: 'BlockRenderer',
@@ -55,10 +55,12 @@
         components: {
             Icon,
             Modal,
-            ImageLeft,
+
+            HeroImageLeft,
+            HeroFormLeft,
+            HeroVideoCenter,
+
             ImageLeftEditForm,
-            FormLeft,
-            VideoCenter,
         },
         props: {
             block: {

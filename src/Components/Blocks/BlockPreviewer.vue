@@ -1,20 +1,18 @@
 <template>
-    <ImageLeft v-if="block.id == 1" :block="block"/>
-    <FormLeft v-if="block.id == 2" :block="block"/>
-    <VideoCenter v-if="block.id == 3" :block="block"/>
+    <component :is="block.componentName" :block="block"/>
 </template>
 
 <script>
-    import ImageLeft from './Heroes/ImageLeft.vue'
-    import FormLeft from './Heroes/FormLeft.vue'
-    import VideoCenter from './Heroes/VideoCenter.vue'
+    import HeroImageLeft from './Heroes/ImageLeft.vue'
+    import HeroFormLeft from './Heroes/FormLeft.vue'
+    import HeroVideoCenter from './Heroes/VideoCenter.vue'
 
     export default {
         name: 'BlockPreviewer',
         components: {
-            ImageLeft,
-            FormLeft,
-            VideoCenter,
+            HeroImageLeft,
+            HeroFormLeft,
+            HeroVideoCenter,
         },
         props: {
             block: {
