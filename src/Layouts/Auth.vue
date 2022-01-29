@@ -12,16 +12,21 @@
             </div>
         </div>
     </section>
+
+    <BreakPointHelper/>
 </template>
 
 <script>
     import { defineComponent } from 'vue'
+    import BreakPointHelper from '../Components/BreakPointHelper.vue'
 
     export default defineComponent({
         name: 'AuthLayout',
+        components: {
+            BreakPointHelper
+        },
         setup() {
             
         },
     })
 </script>
-
