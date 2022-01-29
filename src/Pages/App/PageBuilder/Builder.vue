@@ -136,7 +136,12 @@
     import { onMounted, ref } from 'vue'
     import { v4 as uuidv4 } from 'uuid'
     import { useRoute } from 'vue-router'
-    import Api from '../../../Utils/api'
+
+    import api from '../../../Utils/api'
+    import blocks from '../../../Utils/blocks'
+
+    import BuilderLayout from '../../../Layouts/Builder.vue'
+
     import Draggable from 'vuedraggable'
     import BlockRenderer from '../../../Components/Blocks/BlockRenderer.vue'
     import Icon from '../../../Components/Icon.vue'
@@ -147,6 +152,7 @@
             BlockRenderer,
             Draggable,
             Icon,
+            BuilderLayout,
         },
         setup() {
             const route = useRoute()
@@ -175,20 +181,20 @@
             }
 
             onMounted(async () => {
-                const result = await Api.fetchLandingPage(route.params.uuid)
+                const result = await api.fetchLandingPage(route.params.uuid)
 
                 page.value = result.draft.main
             })
 
             const save = async () => {
-                await Api.updateDraft(route.params.uuid, page.value)
+                await api.updateDraft(route.params.uuid, page.value)
             }
 
             const publish = async () => {
-                await Api.updateLandingPage(route.params.uuid, page.value)
+                await api.updateLandingPage(route.params.uuid, page.value)
             }
 
-            return { heroes, features, page, cloneBlock, deleteBlock, save, publish, route }
+            return { heroes, features, authors, buy, guarantees, page, cloneBlock, deleteBlock, save, publish, route }
         },
     }
 </script>
