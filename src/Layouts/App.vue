@@ -11,6 +11,11 @@
                     Dashboard
                 </router-link> 
             </div>
+            <div class="items-stretch hidden lg:flex">
+                <router-link to="/app/integrations" class="btn btn-ghost rounded-btn">
+                    Integrations
+                </router-link> 
+            </div>
         </div>
         <div class="flex justify-end">
             <button @click="logout()" class="btn btn-ghost">
@@ -22,15 +27,21 @@
     <div class="max-w-5xl mx-auto py-8 space-y-4">
         <slot/>
     </div>
+
+    <BreakPointHelper/>
 </template>
 
 <script>
     import { defineComponent } from 'vue'
     import { useRouter } from 'vue-router'
     import Api from '../Utils/api'
+    import BreakPointHelper from '../Components/BreakPointHelper.vue'
 
     export default defineComponent({
         name: 'AppLayout',
+        components: {
+            BreakPointHelper
+        },
         setup() {
             const router = useRouter()
 
