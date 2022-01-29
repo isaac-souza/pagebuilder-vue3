@@ -93,66 +93,11 @@
             //---------------------------------------------------------------
             // Available blocks
             //---------------------------------------------------------------
-            const heroes = ref([
-                {
-                    id: 1,
-                    type: 'hero',
-                    model: 'image-left',
-                    description: 'Image left',
-                    thumbUrl: '/images/block-thumbs/image-right.png',
-                    data: {
-                        title: 'Venda todo dia usando o Facebook ADS!!!',
-                        subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
-                        imageUrl: 'https://getbootstrap.com/docs/5.1/examples/heroes/bootstrap-themes.png',
-                        buttonText: 'Comprar Agora!!!',
-                        buttonLink: '#comprar',
-                    }
-                },
-                {
-                    id: 2,
-                    type: 'hero',
-                    model: 'form-left',
-                    description: 'Form left',
-                    thumbUrl: '/images/block-thumbs/form-right.png',
-                    title: 'O nome do seu produto aqui',
-                },
-                {
-                    id: 3,
-                    type: 'hero',
-                    model: 'video-center',
-                    description: 'Video center',
-                    title: 'O nome do seu produto aqui',
-                    thumbUrl: '/images/block-thumbs/video-center.png',
-                    video_url: 'https://www.youtube.com/embed/ZuxaFHe5-20',
-                },
-            ])
-
-            const features = ref([
-                {
-                    id: 4,
-                    type: 'features',
-                    model: 'grid_3',
-                    description: 'Grid 3x1',
-                    title: 'Os beneficios do seu produto aqui',
-                    list: new Array,
-                },
-                {
-                    id: 5,
-                    type: 'features',
-                    model: 'grid_4',
-                    description: 'Grid 4x1',
-                    title: 'Os beneficios do seu produto aqui',
-                    list: new Array,
-                },
-                {
-                    id: 6,
-                    type: 'features',
-                    model: 'list',
-                    description: 'Simple list',
-                    title: 'Os beneficios do seu produto aqui',
-                    list: new Array,
-                },
-            ])
+            const heroes = blocks.heroes
+            const features = blocks.features
+            const authors = blocks.authors
+            const buy = blocks.buy
+            const guarantees = blocks.guarantees
 
             //---------------------------------------------------------------
             // Page
