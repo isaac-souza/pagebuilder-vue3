@@ -5,96 +5,12 @@
         </div>
         <div class="hidden lg:block">
             <div class="flex min-h-screen">
-                <div class="bg-slate-100 pb-48" style="width: 15%">
-                    <div class="collapse collapse-arrow">
-                        <input type="checkbox">
-                        <div class="collapse-title text-xl font-medium">
-                            Heroes
-                        </div>
-                        <div class="collapse-content space-y-4">
-                            <Draggable class="dragArea list-group" :list="heroes" :sort="false" :clone="cloneBlock" :group="{ name: 'blocks', pull: 'clone', put: false }" item-key="id">
-                                <template #item="{ element }">
-                                    <div class="list-group-item">
-                                        <div class="mb-4 p-1 border border-gray-400 rounded-md">
-                                            <span>{{ element.description }}</span>
-                                            <img :src="element.thumbUrl" class="w-full h-auto">
-                                        </div>
-                                    </div>
-                                </template>
-                            </Draggable>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow">
-                        <input type="checkbox">
-                        <div class="collapse-title text-xl font-medium">
-                            Features
-                        </div>
-                        <div class="collapse-content space-y-4">
-                            <Draggable class="dragArea list-group" :list="features" :sort="false" :clone="cloneBlock" :group="{ name: 'blocks', pull: 'clone', put: false }" item-key="id">
-                                <template #item="{ element }">
-                                    <div class="list-group-item">
-                                        <div class="mb-4 p-1 border border-gray-400 rounded-md">
-                                            <span>{{ element.description }}</span>
-                                            <img :src="element.thumbUrl" class="w-full h-auto">
-                                        </div>
-                                    </div>
-                                </template>
-                            </Draggable>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow">
-                        <input type="checkbox">
-                        <div class="collapse-title text-xl font-medium">
-                            Authors
-                        </div>
-                        <div class="collapse-content space-y-4">
-                            <Draggable class="dragArea list-group" :list="authors" :sort="false" :clone="cloneBlock" :group="{ name: 'blocks', pull: 'clone', put: false }" item-key="id">
-                                <template #item="{ element }">
-                                    <div class="list-group-item">
-                                        <div class="mb-4 p-1 border border-gray-400 rounded-md">
-                                            <span>{{ element.description }}</span>
-                                            <img :src="element.thumbUrl" class="w-full h-auto">
-                                        </div>
-                                    </div>
-                                </template>
-                            </Draggable>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow">
-                        <input type="checkbox">
-                        <div class="collapse-title text-xl font-medium">
-                            Buy Button
-                        </div>
-                        <div class="collapse-content space-y-4">
-                            <Draggable class="dragArea list-group" :list="buy" :sort="false" :clone="cloneBlock" :group="{ name: 'blocks', pull: 'clone', put: false }" item-key="id">
-                                <template #item="{ element }">
-                                    <div class="list-group-item">
-                                        <div class="mb-4 p-1 border border-gray-400 rounded-md">
-                                            <span>{{ element.description }}</span>
-                                            <img :src="element.thumbUrl" class="w-full h-auto">
-                                        </div>
-                                    </div>
-                                </template>
-                            </Draggable>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-arrow">
-                        <input type="checkbox">
-                        <div class="collapse-title text-xl font-medium">
-                            Guarantees
-                        </div>
-                        <div class="collapse-content space-y-4">
-                            <Draggable class="dragArea list-group" :list="guarantees" :sort="false" :clone="cloneBlock" :group="{ name: 'blocks', pull: 'clone', put: false }" item-key="id">
-                                <template #item="{ element }">
-                                    <div class="list-group-item">
-                                        <div class="mb-4 p-1 border border-gray-400 rounded-md">
-                                            <span>{{ element.description }}</span>
-                                            <img :src="element.thumbUrl" class="w-full h-auto">
-                                        </div>
-                                    </div>
-                                </template>
-                            </Draggable>
-                        </div>
+                    <div class="bg-slate-100 pb-48">
+                        <BlockGroup title="Heroes" :blocks="heroes"/>
+                        <BlockGroup title="Features" :blocks="features"/>
+                        <BlockGroup title="Authors" :blocks="authors"/>
+                        <BlockGroup title="Buy" :blocks="buy"/>
+                        <BlockGroup title="Guarantees" :blocks="guarantees"/>
                     </div>
                 </div>
 
