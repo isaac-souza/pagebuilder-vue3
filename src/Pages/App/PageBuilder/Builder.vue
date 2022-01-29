@@ -4,7 +4,9 @@
             Sorry, but we only support large screens as of now.
         </div>
         <div class="hidden lg:block">
+
             <div class="flex min-h-screen">
+                <div class="flex overflow-y-auto h-screen" style="width: 15%">
                     <div class="bg-slate-100 pb-48">
                         <BlockGroup title="Heroes" :blocks="heroes"/>
                         <BlockGroup title="Features" :blocks="features"/>
@@ -14,33 +16,35 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-800 pb-48" style="width: 85%">
-                    <div class="px-4 pt-4 gap-x-2 flex justify-end">
-                        <a :href="'/app/landing-pages/' + route.params.uuid + '/preview'" target="_blank" class="btn btn-sm btn-success">
-                            <Icon styles="w-4 h-4" name="external-link"/>
-                            <span class="ml-1 font-normal text-xs">Preview</span>
-                        </a>
-                        <button @click="save()" class="btn btn-sm btn-info">
-                            <Icon styles="w-4 h-4" name="save"/>
-                            <span class="ml-1 font-normal text-xs">Save</span>
-                        </button>
-                        <button @click="publish()" class="btn btn-sm btn-error">
-                            <Icon styles="w-5 h-5" name="upload"/>
-                            <span class="ml-1 font-normal text-xs">Publish</span>
-                        </button>
-                        <div class="btn btn-sm btn-info">
-                            <Icon styles="w-4 h-4" name="close"/>
-                            <router-link to="/app" class="ml-1 font-normal text-xs">Close editor</router-link>
+                <div class="flex overflow-y-auto h-screen bg-slate-800" style="width: 85%">
+                    <div class="p-0">
+                        <div class="px-4 pt-4 gap-x-2 flex justify-end">
+                            <a :href="'/app/landing-pages/' + route.params.uuid + '/preview'" target="_blank" class="btn btn-sm btn-success">
+                                <Icon styles="w-4 h-4" name="external-link"/>
+                                <span class="ml-1 font-normal text-xs">Preview</span>
+                            </a>
+                            <button @click="save()" class="btn btn-sm btn-info">
+                                <Icon styles="w-4 h-4" name="save"/>
+                                <span class="ml-1 font-normal text-xs">Save</span>
+                            </button>
+                            <button @click="publish()" class="btn btn-sm btn-error">
+                                <Icon styles="w-5 h-5" name="upload"/>
+                                <span class="ml-1 font-normal text-xs">Publish</span>
+                            </button>
+                            <div class="btn btn-sm btn-info">
+                                <Icon styles="w-4 h-4" name="close"/>
+                                <router-link to="/app" class="ml-1 font-normal text-xs">Close editor</router-link>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-4">
-                        <Draggable class="dragArea list-group" :list="page" handle=".handle" group="blocks" item-key="uuid">
-                            <template #item="{ element, index }">
-                                <div class="list-group-item">
-                                    <BlockRenderer :block="element" @delete="deleteBlock(index)"/>
-                                </div>
-                            </template>
-                        </Draggable>
+                        <div class="p-4 block">
+                            <Draggable class="dragArea list-group" :list="page" handle=".handle" group="blocks" item-key="uuid">
+                                <template #item="{ element, index }">
+                                    <div class="list-group-item">
+                                        <BlockRenderer :block="element" @delete="deleteBlock(index)"/>
+                                    </div>
+                                </template>
+                            </Draggable>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,10 +60,12 @@
     import api from '../../../Utils/api'
     import blocks from '../../../Utils/blocks'
 
-    import BuilderLayout from '../../../Layouts/Builder.vue'
-
     import Draggable from 'vuedraggable'
+
+    import BuilderLayout from '../../../Layouts/Builder.vue'
     import BlockRenderer from '../../../Components/Blocks/BlockRenderer.vue'
+    import BlockGroup from '../../../Components/Blocks/BlockGroup.vue'
+    
     import Icon from '../../../Components/Icon.vue'
 
     export default {
@@ -69,6 +75,7 @@
             Draggable,
             Icon,
             BuilderLayout,
+            BlockGroup,
         },
         setup() {
             const route = useRoute()
