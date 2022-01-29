@@ -37,7 +37,7 @@
     import { defineComponent, computed } from 'vue'
 
     export default defineComponent({
-        name: 'ImageLeftEditForm',
+        name: 'HeroImageLeftOptions',
         emits: ['update:modelValue'],
         props: {
             modelValue: {
