@@ -41,26 +41,61 @@
 <script>
     import { ref } from 'vue'
     import Icon from './../Icon.vue'
-    import Modal from './../Modal.vue'
     
-    import HeroImageLeft from './Heroes/ImageLeft.vue'
-    import HeroFormLeft from './Heroes/FormLeft.vue'
-    import HeroVideoCenter from './Heroes/VideoCenter.vue'
+    import HeroImageLeft from './Heroes/HeroImageLeft.vue'
+    import HeroImageLeftOptions from './Heroes/HeroImageLeftOptions.vue'
+    import HeroFormLeft from './Heroes/HeroFormLeft.vue'
+    import HeroVideoCenter from './Heroes/HeroVideoCenter.vue'
 
-    import ImageLeftEditForm from './Heroes/ImageLeftEditForm.vue'
+    import AuthorImageLeft from './Author/AuthorImageLeft.vue'
+    import AuthorImageLeftOptions from './Author/AuthorImageLeftOptions.vue'
+
+    import BuySimple from './Buy/BuySimple.vue'
+    import BuySimpleOptions from './Buy/BuySimpleOptions.vue'
+
+    import FeaturesGrid4 from './Features/FeaturesGrid4.vue'
+    import FeaturesGrid4Options from './Features/FeaturesGrid4Options.vue'
+    
+    import Guarantee7Days from './Guarantees/Guarantee7Days.vue'
+    import Guarantee7DaysOptions from './Guarantees/Guarantee7DaysOptions.vue'
+
+    import Guarantee10Days from './Guarantees/Guarantee10Days.vue'
+    import Guarantee10DaysOptions from './Guarantees/Guarantee10DaysOptions.vue'
+
+    import Guarantee15Days from './Guarantees/Guarantee15Days.vue'
+    import Guarantee15DaysOptions from './Guarantees/Guarantee15DaysOptions.vue'
+    
+    import Guarantee30Days from './Guarantees/Guarantee30Days.vue'
+    import Guarantee30DaysOptions from './Guarantees/Guarantee30DaysOptions.vue'
 
     export default {
         name: 'BlockRenderer',
         emits: ['delete'],
         components: {
             Icon,
-            Modal,
 
             HeroImageLeft,
+            HeroImageLeftOptions,
             HeroFormLeft,
             HeroVideoCenter,
 
-            ImageLeftEditForm,
+            AuthorImageLeft,
+            AuthorImageLeftOptions,
+
+            BuySimple,
+            BuySimpleOptions,
+
+            FeaturesGrid4,
+            FeaturesGrid4Options,
+
+            Guarantee7Days,
+            Guarantee7DaysOptions,
+            Guarantee10Days,
+            Guarantee10DaysOptions,
+            Guarantee15Days,
+            Guarantee15DaysOptions,
+            Guarantee30Days,
+            Guarantee30DaysOptions,
         },
         props: {
             block: {

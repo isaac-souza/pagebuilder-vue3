@@ -1,11 +1,22 @@
 <template>
-    <component :is="block.componentName" :block="block"/>
+    <component :is="block.componentName" :block="block" :first="first"/>
 </template>
 
 <script>
-    import HeroImageLeft from './Heroes/ImageLeft.vue'
-    import HeroFormLeft from './Heroes/FormLeft.vue'
-    import HeroVideoCenter from './Heroes/VideoCenter.vue'
+    import HeroImageLeft from './Heroes/HeroImageLeft.vue'
+    import HeroFormLeft from './Heroes/HeroFormLeft.vue'
+    import HeroVideoCenter from './Heroes/HeroVideoCenter.vue'
+
+    import AuthorImageLeft from './Author/AuthorImageLeft.vue'
+
+    import BuySimple from './Buy/BuySimple.vue'
+
+    import FeaturesGrid4 from './Features/FeaturesGrid4.vue'
+
+    import Guarantee7Days from './Guarantees/Guarantee7Days.vue'
+    import Guarantee10Days from './Guarantees/Guarantee10Days.vue'
+    import Guarantee15Days from './Guarantees/Guarantee15Days.vue'
+    import Guarantee30Days from './Guarantees/Guarantee30Days.vue'
 
     export default {
         name: 'BlockPreviewer',
@@ -13,12 +24,23 @@
             HeroImageLeft,
             HeroFormLeft,
             HeroVideoCenter,
+            AuthorImageLeft,
+            BuySimple,
+            FeaturesGrid4,
+            Guarantee7Days,
+            Guarantee10Days,
+            Guarantee15Days,
+            Guarantee30Days,
         },
         props: {
             block: {
                 type: Object,
                 required: true
             },
+            first: {
+                type: Boolean,
+                default: false
+            }
         },
     }
 </script>
