@@ -1,38 +1,69 @@
 <template>
-    <div class="space-y-2">
-        <div class="form-control">
+    <div class="">
+        <div class="form-control mb-8">
             <label class="label -mb-2">
-                <span class="label-text">Título</span>
+                <span class="label-text">Section title</span>
             </label>
             <input v-model="block.data.title" type="text" class="input input-bordered input-sm">
         </div>
+
+        <div class="mt-8 font-bold uppercase text-sm text-gray-500">Add new feature</div>
+
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Subtítulo</span>
+                <span class="label-text">Title</span>
             </label>
-            <input v-model="block.data.subtitle" type="text" class="input input-bordered input-sm">
+            <input v-model="title" type="text" class="input input-bordered input-sm">
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Texto botão</span>
+                <span class="label-text">Description</span>
             </label>
-            <input v-model="block.data.buttonText" type="text" class="input input-bordered input-sm">
+            <textarea v-model="description" class="textarea h-24 textarea-bordered"></textarea>
         </div>
-        <div class="form-control">
-            <label class="label -mb-2">
-                <span class="label-text">Link do botão</span>
-            </label>
-            <input v-model="block.data.buttonLink" type="text" class="input input-bordered input-sm">
+
+        <div class="flex justify-end">
+            <button @click="add()" class="btn btn-sm btn-outline btn-primary mt-2">Add</button>
+        </div>
+
+        <div class="mt-8 mb-2 font-bold uppercase text-sm text-gray-500">Current features</div>
+
+        <div class="flex flex-col mb-8">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden rounded-xl">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr v-for="feature in block.data.list" :key="feature.uuid">
+                                    <td class="px-2 py-1 whitespace-nowrap">
+                                        {{ feature.title }}
+                                    </td>
+                                    <td class="px-2 py-1 flex justify-end items-center my-auto py-auto">
+                                        <button @click="remove(block.uuid)" class="btn btn-sm btn-ghost text-red-500">
+                                            <Icon name="trash" class="w-4 h-4"/>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import { defineComponent, computed } from 'vue'
+    import { defineComponent, computed, ref } from 'vue'
+    import Icon from '../../Icon.vue'
+    import { v4 as uuidv4 } from 'uuid'
 
     export default defineComponent({
         name: 'FeaturesGrid4Options',
         emits: ['update:modelValue'],
+        components: {
+            Icon,
+        },
         props: {
             modelValue: {
                 type: Object,
@@ -45,7 +76,34 @@
                 set: (value) => context.emit('update:modelValue', value),
             })
 
-            return { block }
+            //--------------------------------------------------
+            // List functionality
+            //--------------------------------------------------
+            const title = ref('')
+            const description = ref('')
+
+            const add = () => {
+                block.value.data.list.push({
+                    uuid: uuidv4(),
+                    title: title.value,
+                    description: description.value,
+                })
+
+                title.value = ''
+                description.value = ''
+            }
+
+            const remove = (uuidToRemove) => {
+                const feature = block.value.data.list.find((features) => {
+                    return features.uuid == uuidToRemove
+                })
+
+                let index = block.value.data.list.lastIndexOf(feature)
+
+                block.value.data.list.splice(index, 1);
+            }
+
+            return { block, add, remove, title, description }
         },
     })
 </script>
