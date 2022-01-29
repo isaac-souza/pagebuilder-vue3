@@ -24,14 +24,11 @@
             <input id="my-drawer" type="checkbox" class="drawer-toggle">
             <div class="drawer-side h-screen">
                 <label for="my-drawer" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-72 bg-base-100 text-base-content">
-                    <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Fechar</button>
-                    
-                    <p class="my-4 font-bold uppercase">Opções do bloco</p>
-                    
-                    <ImageLeftEditForm v-if="block.id == 1" v-model="block"/>
-
-                    <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Fechar</button>
+                <ul class="menu p-4 overflow-y-auto border-r-2 w-64 bg-base-100 text-base-content">
+                    <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Close</button>
+                    <p class="my-4 font-bold uppercase">Block options</p>
+                    <component :is="block.optionsComponentName" v-model="block"/>
+                    <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Close</button>
                 </ul>
             </div>
         </div>
