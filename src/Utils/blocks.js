@@ -129,7 +129,7 @@ const authors = ref([
             darkMode: true,
             title: 'About the author',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis provident, itaque doloribus earum nostrum iste nesciunt excepturi neque eius, numquam alias eos, delectus quo illum eaque consequuntur consectetur! Sequi soluta porro, magni possimus a tempore quas rem commodi aut pariatur quaerat natus sunt, nihil voluptate maxime beatae atque assumenda similique!',
-            imageUrl: 'https://www.elliottbaybook.com/sites/elliottbaybook.com/files/Chuck%20Palahniuk%20credit%20Allan%20Amato_0.jpg'
+            imageUrl: '/images/blocks/v1/authors/sample.png'
         }
     },
 ])
