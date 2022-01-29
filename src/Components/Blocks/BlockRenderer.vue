@@ -1,20 +1,20 @@
 <template>
     <div class="relative">
-        <div class="pl-14">
+        <div class="pl-12">
             <component :is="block.componentName" :block="block"/>
         </div>
 
-        <div class="absolute top-0 left-0 flex flex-col py-2 space-y-2 text-white bg-gray-700 rounded-md">
+        <div class="absolute top-0 left-0 flex flex-col py-2 px-0 -ml-1.5 space-y-2 text-white bg-gray-600 rounded-md">
             <div class="btn btn-sm btn-ghost handle">
-                <Icon name="move"/>
+                <Icon name="move" class="h-5 w-5"/>
             </div>
             <div class="flex flex-col items-center justify-center drawer-content">
                 <label @click="toggleDrawer()" for="my-drawer" class="btn btn-sm btn-ghost drawer-button">
-                    <Icon name="edit"/>
+                    <Icon name="edit" class="h-5 w-5"/>
                 </label>
             </div>
             <div @click="handleDeleteEvent()" class="btn btn-sm btn-ghost text-red-600">
-                <Icon name="trash"/>
+                <Icon name="trash" class="h-5 w-5"/>
             </div>
         </div>
     </div>
@@ -101,12 +101,6 @@
             }
         },
         setup(props, context) {
-            const showEditModal = ref(false)
-
-            const toggleEditModal = () => {
-                showEditModal.value = !showEditModal.value
-            }
-
             const handleDeleteEvent = () => {
                 context.emit('delete', props.block)
             }
@@ -117,7 +111,7 @@
                 showDrawer.value = !showDrawer.value
             }
 
-            return { handleDeleteEvent, showEditModal, toggleEditModal, showDrawer, toggleDrawer }
+            return { handleDeleteEvent, showDrawer, toggleDrawer }
         },
     }
 </script>
