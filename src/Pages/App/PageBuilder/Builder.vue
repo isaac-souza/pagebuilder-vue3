@@ -8,12 +8,7 @@
             <div class="flex min-h-screen">
                 <div class="flex overflow-y-auto h-screen" style="width: 15%">
                     <div class="bg-slate-100 pb-48">
-                        <BlockGroup title="Heroes" :blocks="heroes"/>
-                        <BlockGroup title="Features" :blocks="features"/>
-                        <BlockGroup title="Authors" :blocks="authors"/>
-                        <BlockGroup title="Buy" :blocks="buy"/>
-                        <BlockGroup title="Guarantees" :blocks="guarantees"/>
-                        <BlockGroup title="FAQ" :blocks="faq"/>
+                        <BlockGroup v-for="group in groups" :key="group.uuid" :title="group.title" :blocks="group.blocks"/>
                     </div>
                 </div>
 
@@ -81,13 +76,7 @@
         setup() {
             const route = useRoute()
 
-            const heroes = blocks.heroes
-            const features = blocks.features
-            const authors = blocks.authors
-            const buy = blocks.buy
-            const guarantees = blocks.guarantees
-            const faq = blocks.faq
-
+            const groups = blocks.groups
             const page = ref([])
 
             const cloneBlock = (block) => {
@@ -113,7 +102,7 @@
                 await api.updateLandingPage(route.params.uuid, page.value)
             }
 
-            return { heroes, features, authors, buy, guarantees, faq, page, cloneBlock, deleteBlock, save, publish, route }
+            return { groups, page, cloneBlock, deleteBlock, save, publish, route }
         },
     }
 </script>
