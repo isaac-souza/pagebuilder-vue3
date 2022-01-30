@@ -15,7 +15,7 @@
                 <div class="flex overflow-y-auto h-screen bg-slate-800" style="width: 85%">
                     <div class="p-0">
                         <div class="px-4 pt-4 gap-x-2 flex justify-end">
-                            <a :href="'/app/landing-pages/' + route.params.uuid + '/preview'" target="_blank" class="btn btn-sm btn-success">
+                            <a :href="'/app/preview/' + route.params.uuid + '/main'" target="_blank" class="btn btn-sm btn-success">
                                 <Icon styles="w-4 h-4" name="external-link"/>
                                 <span class="ml-1 font-normal text-xs">Preview</span>
                             </a>
