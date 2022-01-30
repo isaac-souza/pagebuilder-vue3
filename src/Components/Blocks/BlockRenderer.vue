@@ -42,6 +42,7 @@
     import HeroImageLeft from './Heroes/HeroImageLeft.vue'
     import HeroImageLeftOptions from './Heroes/HeroImageLeftOptions.vue'
     import HeroFormLeft from './Heroes/HeroFormLeft.vue'
+    import HeroFormLeftOptions from './Heroes/HeroFormLeftOptions.vue'
     import HeroVideoCenter from './Heroes/HeroVideoCenter.vue'
 
     import AuthorImageLeft from './Author/AuthorImageLeft.vue'
@@ -65,6 +66,9 @@
     import Guarantee30Days from './Guarantees/Guarantee30Days.vue'
     import Guarantee30DaysOptions from './Guarantees/Guarantee30DaysOptions.vue'
 
+    import FAQCollapse from './FAQ/FAQCollapse.vue'
+    import FAQCollapseOptions from './FAQ/FAQCollapseOptions.vue'
+
     export default {
         name: 'BlockRenderer',
         emits: ['delete'],
@@ -74,6 +78,7 @@
             HeroImageLeft,
             HeroImageLeftOptions,
             HeroFormLeft,
+            HeroFormLeftOptions,
             HeroVideoCenter,
 
             AuthorImageLeft,
@@ -93,6 +98,9 @@
             Guarantee15DaysOptions,
             Guarantee30Days,
             Guarantee30DaysOptions,
+
+            FAQCollapse,
+            FAQCollapseOptions,
         },
         props: {
             block: {
