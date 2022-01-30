@@ -13,6 +13,7 @@
                         <BlockGroup title="Authors" :blocks="authors"/>
                         <BlockGroup title="Buy" :blocks="buy"/>
                         <BlockGroup title="Guarantees" :blocks="guarantees"/>
+                        <BlockGroup title="FAQ" :blocks="faq"/>
                     </div>
                 </div>
 
@@ -88,6 +89,7 @@
             const authors = blocks.authors
             const buy = blocks.buy
             const guarantees = blocks.guarantees
+            const faq = blocks.faq
 
             //---------------------------------------------------------------
             // Page
@@ -117,7 +119,7 @@
                 await api.updateLandingPage(route.params.uuid, page.value)
             }
 
-            return { heroes, features, authors, buy, guarantees, page, cloneBlock, deleteBlock, save, publish, route }
+            return { heroes, features, authors, buy, guarantees, faq, page, cloneBlock, deleteBlock, save, publish, route }
         },
     }
 </script>
