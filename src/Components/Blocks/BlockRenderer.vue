@@ -10,7 +10,7 @@
             </div>
             <div class="flex flex-col items-center justify-center drawer-content">
                 <label @click="toggleDrawer()" for="my-drawer" class="btn btn-sm btn-ghost drawer-button">
-                    <Icon name="edit" class="h-5 w-5"/>
+                    <Icon name="settings" class="h-5 w-5"/>
                 </label>
             </div>
             <div @click="handleDeleteEvent()" class="btn btn-sm btn-ghost text-red-600">
