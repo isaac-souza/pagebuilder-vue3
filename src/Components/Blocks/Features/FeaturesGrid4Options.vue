@@ -36,7 +36,7 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <tr v-for="feature in block.data.list" :key="feature.uuid">
                                     <td class="px-2 py-1 whitespace-nowrap">
-                                        {{ feature.title }}
+                                        {{ truncateText(feature.title) }}
                                     </td>
                                     <td class="px-2 py-1 flex justify-end items-center my-auto py-auto">
                                         <button @click="remove(block.uuid)" class="btn btn-sm btn-ghost text-red-500">
@@ -103,7 +103,15 @@
                 block.value.data.list.splice(index, 1);
             }
 
-            return { block, add, remove, title, description }
+            const truncateText = (text, lenght = 15) => {
+                if(text.length <= 15) {
+                    return text
+                }
+
+                return text.substring(0, lenght) + '...'
+            }
+
+            return { block, add, remove, title, description, truncateText }
         },
     })
 </script>
