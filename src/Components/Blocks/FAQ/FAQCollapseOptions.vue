@@ -82,9 +82,6 @@
                 set: (value) => context.emit('update:modelValue', value),
             })
 
-            //--------------------------------------------------
-            // List functionality
-            //--------------------------------------------------
             const question = ref('')
             const answer = ref('')
 
