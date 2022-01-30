@@ -1,7 +1,8 @@
 <template>
-    <slot/>
-
-    <BreakPointHelper/>
+    <div>
+        <slot/>
+        <BreakPointHelper/>
+    </div>
 </template>
 
 <script>
