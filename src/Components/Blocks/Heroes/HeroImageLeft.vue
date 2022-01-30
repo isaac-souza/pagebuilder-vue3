@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     <div class="col-span-12 md:col-span-5 order-1 md:order-2">
-                        <img :src="block.data.imageUrl" class="" loading="lazy">
+                        <img :src="block.data.imageUrl" class="max-w-xs max-h-96 block mx-auto" loading="lazy">
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@
             <div v-for="landingPage in landingPages" :key="landingPage.uuid" class="col-span-12 md:col-span-4 lg:col-span-3">
                 <div class="card card-bordered border border-gray-300">
                     <figure>
-                        <img src="https://picsum.photos/id/1005/400/250">
+                        <img src="https://picsum.photos/id/1005/400/250" loading="lazy">
                     </figure> 
                     <div class="card-body p-4">
                         <h2 class="card-title text-base font-normal">{{ landingPage.name }}</h2> 

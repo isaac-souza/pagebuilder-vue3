@@ -2,7 +2,7 @@
     <MarketingLayout>
         <div class="hero min-h-screen bg-base-200">
             <div class="flex-col hero-content lg:flex-row-reverse">
-                <img src="https://picsum.photos/id/1005/600/600" class="max-w-sm rounded-lg shadow-2xl"> 
+                <img src="https://picsum.photos/id/1005/600/600" class="max-w-sm rounded-lg shadow-2xl" loading="lazy"> 
                 <div>
                     <h1 class="mb-5 text-4xl font-bold">
                         The easiest way to create beautiful landing pages
