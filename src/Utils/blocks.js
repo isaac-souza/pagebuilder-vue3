@@ -18,7 +18,7 @@ const groups = ref([
                     darkMode: true,
                     title: 'Venda todo dia usando o Facebook ADS!!!',
                     subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
-                    imageUrl: '/images/samples/v1/heroes/ebook-cover.png',
+                    imageUrl: '/images/samples/v1/heros/ebook-cover.png',
                     buttonText: 'Comprar Agora!!!',
                     buttonLink: 'https://google.com',
                 }
