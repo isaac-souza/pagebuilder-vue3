@@ -37,7 +37,7 @@
 
 <script>
     import { ref } from 'vue'
-    import Icon from './../Icon.vue'
+    import Icon from '../Icon.vue'
     
     import HeroImageLeft from './Heroes/HeroImageLeft.vue'
     import HeroImageLeftOptions from './Heroes/HeroImageLeftOptions.vue'
@@ -72,7 +72,7 @@
     import FAQListOptions from './FAQ/FAQListOptions.vue'
 
     export default {
-        name: 'BlockRenderer',
+        name: 'BlockWrapper',
         emits: ['delete'],
         components: {
             Icon,

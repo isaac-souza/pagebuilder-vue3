@@ -36,7 +36,7 @@
                             <Draggable class="dragArea list-group" :list="page" handle=".handle" group="blocks" item-key="uuid">
                                 <template #item="{ element, index }">
                                     <div class="list-group-item">
-                                        <BlockRenderer :block="element" @delete="deleteBlock(index)"/>
+                                        <BlockWrapper :block="element" @delete="deleteBlock(index)"/>
                                     </div>
                                 </template>
                             </Draggable>
@@ -59,7 +59,7 @@
     import Draggable from 'vuedraggable'
 
     import BuilderLayout from '../../../Layouts/Builder.vue'
-    import BlockRenderer from '../../../Components/Blocks/BlockRenderer.vue'
+    import BlockWrapper from '../../../Components/Blocks/BlockWrapper.vue'
     import BlockGroup from '../../../Components/Blocks/BlockGroup.vue'
     
     import Icon from '../../../Components/Icon.vue'
@@ -67,7 +67,7 @@
     export default {
         name: 'PageBuilder',
         components: {
-            BlockRenderer,
+            BlockWrapper,
             Draggable,
             Icon,
             BuilderLayout,
