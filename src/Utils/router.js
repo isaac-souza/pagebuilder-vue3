@@ -85,7 +85,7 @@ const routes = [
                 },
             },
             {
-                path: '/app/landing-pages/:uuid/builder',
+                path: '/app/builder/:uuid/:type',
                 name: 'PageBuilder',
                 component: PageBuilder,
                 beforeEnter: (to, from, next) => {
@@ -93,7 +93,7 @@ const routes = [
                 },
             },
             {
-                path: '/app/landing-pages/:uuid/preview',
+                path: '/app/preview/:uuid/:type',
                 name: 'PagePreview',
                 component: PagePreview,
                 beforeEnter: (to, from, next) => {
