@@ -50,7 +50,7 @@ const groups = ref([
                     darkMode: true,
                     title: 'Venda todo dia usando o Facebook ADS!!!',
                     subtitle: 'Voce quer vender todos os dias usando o facebook Ads? Então voce precisa desse esbook!!!',
-                    videoEmbed: 'https://www.youtube.com/embed/ZuxaFHe5-20',
+                    youtubeVideoCode: '5DVDewOReoY',
                 }
             },
         ]

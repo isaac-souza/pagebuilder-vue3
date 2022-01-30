@@ -44,6 +44,7 @@
     import HeroFormLeft from './Heroes/HeroFormLeft.vue'
     import HeroFormLeftOptions from './Heroes/HeroFormLeftOptions.vue'
     import HeroVideoCenter from './Heroes/HeroVideoCenter.vue'
+    import HeroVideoCenterOptions from './Heroes/HeroVideoCenterOptions.vue'
 
     import AuthorImageLeft from './Author/AuthorImageLeft.vue'
     import AuthorImageLeftOptions from './Author/AuthorImageLeftOptions.vue'
@@ -82,6 +83,7 @@
             HeroFormLeft,
             HeroFormLeftOptions,
             HeroVideoCenter,
+            HeroVideoCenterOptions,
 
             AuthorImageLeft,
             AuthorImageLeftOptions,
