@@ -81,9 +81,6 @@
         setup() {
             const route = useRoute()
 
-            //---------------------------------------------------------------
-            // Available blocks
-            //---------------------------------------------------------------
             const heroes = blocks.heroes
             const features = blocks.features
             const authors = blocks.authors
@@ -91,9 +88,6 @@
             const guarantees = blocks.guarantees
             const faq = blocks.faq
 
-            //---------------------------------------------------------------
-            // Page
-            //---------------------------------------------------------------
             const page = ref([])
 
             const cloneBlock = (block) => {
