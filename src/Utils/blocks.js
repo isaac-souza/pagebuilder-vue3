@@ -32,7 +32,9 @@ const heroes = ref([
         thumbUrl: '/images/thumbs/v1/heroes/form-right.png',
         data: {
             darkMode: true,
-            title: 'O nome do seu produto aqui',
+            title: 'O melhor Ebook do Brasil sobre Facebook Ads!',
+            subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
+            buttonText: 'I want a copy!!!',
         }
     },
     {
@@ -129,7 +131,7 @@ const authors = ref([
             darkMode: true,
             title: 'About the author',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis provident, itaque doloribus earum nostrum iste nesciunt excepturi neque eius, numquam alias eos, delectus quo illum eaque consequuntur consectetur! Sequi soluta porro, magni possimus a tempore quas rem commodi aut pariatur quaerat natus sunt, nihil voluptate maxime beatae atque assumenda similique!',
-            imageUrl: '/images/blocks/v1/authors/sample.png'
+            imageUrl: '/images/blocks/v1/authors/sample.jpg'
         }
     },
 ])
