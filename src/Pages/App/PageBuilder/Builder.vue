@@ -6,13 +6,13 @@
         <div class="hidden lg:block">
 
             <div class="flex min-h-screen">
-                <div class="flex overflow-y-auto h-screen" style="width: 15%">
-                    <div class="bg-slate-100 pb-48">
+                <div class="bg-slate-100 overflow-y-auto h-screen w-1/6">
+                    <div class="pb-48">
                         <BlockGroup v-for="group in groups" :key="group.uuid" :title="group.title" :blocks="group.blocks"/>
                     </div>
                 </div>
 
-                <div class="flex overflow-y-auto h-screen bg-slate-800" style="width: 85%">
+                <div class="bg-slate-800 overflow-y-auto h-screen w-5/6">
                     <div class="p-0">
                         <div class="px-4 pt-4 gap-x-2 flex justify-end">
                             <a :href="'/app/preview/' + route.params.uuid + '/main'" target="_blank" class="btn btn-sm btn-success">
