@@ -1,6 +1,12 @@
 <template>
     <div class="space-y-2">
         <div class="form-control">
+            <label class="cursor-pointer label flex justify-start">
+                <input v-model="block.data.darkMode" type="checkbox" checked="checked" class="toggle toggle-primary">
+                <span class="label-text text-base ml-2">Dark mode</span> 
+            </label>
+        </div>
+        <div class="form-control">
             <label class="label -mb-2">
                 <span class="label-text">Título</span>
             </label>

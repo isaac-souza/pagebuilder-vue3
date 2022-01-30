@@ -4,8 +4,9 @@
             <div :class="{'py-6 md:pt-12 pb-24': first, 'py-12 md:py-24': !first}" class="px-4 md:px-8">
                 <div class="grid grid-cols-12 space-y-8">
                     <div class="col-span-12">
-                        <h2 class="text-3xl md:text-4xl font-bold">
-                            {{ block.data.title }}
+                        <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                            <Icon name="shield" class="w-7 h-7"/>
+                            <span class="ml-2">{{ block.data.title }}</span>
                         </h2>
                     </div>
                     <div class="col-span-12">
@@ -28,9 +29,13 @@
 
 <script>
     import { defineComponent } from 'vue'
+    import Icon from '../../Icon.vue'
 
     export default defineComponent({
         name: 'Guarantee7Days',
+        components: {
+            Icon,
+        },
         props: {
             block: {
                 type: Object,

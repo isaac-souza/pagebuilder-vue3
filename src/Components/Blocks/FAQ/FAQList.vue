@@ -10,7 +10,7 @@
                 </div>
                 <div class="max-w-3xl mx-auto mt-16 space-y-8">
                     <div v-for="faq in block.data.list" :key="faq.uuid" class="">
-                        <div class="text-xl md:text-2xl font-medium">
+                        <div class="text-xl md:text-2xl font-normal">
                             {{ faq.question }}
                         </div>
                         <div :class="{'text-gray-300': block.data.darkMode, 'text-gray-600': !block.data.darkMode}" class="text-gray-600 text-base md:text-lg font-light">

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-900 text-gray-100">
+    <div :class="{'bg-gray-900 text-gray-100': block.data.darkMode, 'bg-white': !block.data.darkMode}">
         <div class="max-w-6xl mx-auto">
             <div :class="{'py-6 md:pt-12 pb-24': first, 'py-12 md:py-24': !first}" class="px-4 md:px-8">
                 <div class="text-center space-y-12">

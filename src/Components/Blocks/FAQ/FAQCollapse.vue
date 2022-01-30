@@ -11,7 +11,7 @@
                 <div class="max-w-3xl mx-auto mt-16 space-y-4">
                     <div v-for="faq in block.data.list" :key="faq.uuid" class="collapse border rounded-xl border-base-300 collapse-arrow">
                         <input type="checkbox">
-                        <div class="collapse-title text-lg md:text-2xl font-medium">
+                        <div class="collapse-title text-lg md:text-2xl font-normal">
                             {{ faq.question }}
                         </div>
                         <div class="collapse-content text-base md:text-lg font-light">
