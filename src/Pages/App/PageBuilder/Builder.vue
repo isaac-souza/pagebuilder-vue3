@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="p-4 block">
-                            <Draggable class="dragArea list-group" :list="page" handle=".handle" group="blocks" item-key="uuid">
+                            <Draggable class="dragArea list-group" :list="draft" handle=".handle" group="blocks" item-key="uuid">
                                 <template #item="{ element, index }">
                                     <div class="list-group-item">
                                         <BlockWrapper :block="element" @delete="deleteBlock(index)"/>
@@ -77,7 +77,7 @@
             const route = useRoute()
 
             const groups = blocks.groups
-            const page = ref([])
+            const draft = ref([])
 
             const cloneBlock = (block) => {
                 block.uuid = uuidv4()
@@ -85,24 +85,23 @@
             }
             
             const deleteBlock = (index) => {
-                page.value.splice(index, 1)
+                draft.value.splice(index, 1)
             }
 
             onMounted(async () => {
                 const result = await api.fetchLandingPage(route.params.uuid)
-
-                page.value = result.draft.main
+                draft.value = result.draft.main
             })
 
             const save = async () => {
-                await api.updateDraft(route.params.uuid, page.value)
+                await api.updateDraft(route.params.uuid, draft.value)
             }
 
             const publish = async () => {
-                await api.updateLandingPage(route.params.uuid, page.value)
+                await api.updateLandingPage(route.params.uuid, draft.value)
             }
 
-            return { groups, page, cloneBlock, deleteBlock, save, publish, route }
+            return { groups, draft, cloneBlock, deleteBlock, save, publish, route }
         },
     }
 </script>
