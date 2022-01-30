@@ -68,6 +68,8 @@
 
     import FAQCollapse from './FAQ/FAQCollapse.vue'
     import FAQCollapseOptions from './FAQ/FAQCollapseOptions.vue'
+    import FAQList from './FAQ/FAQList.vue'
+    import FAQListOptions from './FAQ/FAQListOptions.vue'
 
     export default {
         name: 'BlockRenderer',
@@ -101,6 +103,8 @@
 
             FAQCollapse,
             FAQCollapseOptions,
+            FAQList,
+            FAQListOptions,
         },
         props: {
             block: {

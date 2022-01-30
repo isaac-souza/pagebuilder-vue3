@@ -19,6 +19,7 @@
     import Guarantee30Days from './Guarantees/Guarantee30Days.vue'
 
     import FAQCollapse from './FAQ/FAQCollapse.vue'
+    import FAQList from './FAQ/FAQList.vue'
 
     export default {
         name: 'BlockPreviewer',
@@ -34,6 +35,7 @@
             Guarantee15Days,
             Guarantee30Days,
             FAQCollapse,
+            FAQList,
         },
         props: {
             block: {

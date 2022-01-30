@@ -165,6 +165,46 @@ const faq = ref([
     {
         uuid: uuidv4(),
         type: 'faq',
+        model: 'list',
+        componentName: 'FAQList',
+        optionsComponentName: 'FAQListOptions',
+        description: 'List',
+        thumbUrl: '/images/thumbs/v1/faq/list.png',
+        data: {
+            darkMode: false,
+            title: 'Dúvidas mais Frequentes',
+            list: [
+                {
+                    uuid: uuidv4(),
+                    question: 'Question 1 goes here',
+                    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                },
+                {
+                    uuid: uuidv4(),
+                    question: 'Question 2 goes here',
+                    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                },
+                {
+                    uuid: uuidv4(),
+                    question: 'Question 3 goes here',
+                    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                },
+                {
+                    uuid: uuidv4(),
+                    question: 'Question 4 goes here',
+                    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                },
+                {
+                    uuid: uuidv4(),
+                    question: 'Question 5 goes here',
+                    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                },
+            ]
+        }
+    },
+    {
+        uuid: uuidv4(),
+        type: 'faq',
         model: 'collapse',
         componentName: 'FAQCollapse',
         optionsComponentName: 'FAQCollapseOptions',
