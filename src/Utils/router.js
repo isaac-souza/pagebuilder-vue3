@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Middleware from './middleware'
+import middleware from './middleware'
 
 import Login from '../Pages/Auth/Login.vue'
 import Register from '../Pages/Auth/Register.vue'
@@ -45,7 +45,7 @@ const routes = [
         name: 'Login',
         component: Login,
         beforeEnter: (to, from, next) => {
-            return Middleware.guest(to, from, next)
+            return middleware.guest(to, from, next)
         }
     },
     {
@@ -53,7 +53,7 @@ const routes = [
         name: 'Register',
         component: Register,
         beforeEnter: (to, from, next) => {
-            return Middleware.guest(to, from, next)
+            return middleware.guest(to, from, next)
         }
     },
 
@@ -65,7 +65,7 @@ const routes = [
         name: 'App',
         component: App,
         beforeEnter: (to, from, next) => {
-            return Middleware.auth(to, from, next)
+            return middleware.auth(to, from, next)
         },
         children: [
             {
@@ -73,7 +73,7 @@ const routes = [
                 name: 'Dashboard',
                 component: Dashboard,
                 beforeEnter: (to, from, next) => {
-                    return Middleware.auth(to, from, next)
+                    return middleware.auth(to, from, next)
                 },
             },
             {
@@ -81,7 +81,7 @@ const routes = [
                 name: 'CreateLandingPage',
                 component: CreateLandingPage,
                 beforeEnter: (to, from, next) => {
-                    return Middleware.auth(to, from, next)
+                    return middleware.auth(to, from, next)
                 },
             },
             {
@@ -89,7 +89,7 @@ const routes = [
                 name: 'PageBuilder',
                 component: PageBuilder,
                 beforeEnter: (to, from, next) => {
-                    return Middleware.auth(to, from, next)
+                    return middleware.auth(to, from, next)
                 },
             },
             {
@@ -97,7 +97,7 @@ const routes = [
                 name: 'PagePreview',
                 component: PagePreview,
                 beforeEnter: (to, from, next) => {
-                    return Middleware.auth(to, from, next)
+                    return middleware.auth(to, from, next)
                 },
             },
         ],
