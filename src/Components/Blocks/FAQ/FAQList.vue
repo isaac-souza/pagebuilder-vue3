@@ -3,9 +3,8 @@
         <div class="max-w-6xl mx-auto">
             <div :class="{'py-6 md:pt-12 pb-24': first, 'py-12 md:py-24': !first}" class="px-4 md:px-8">
                 <div class="space-y-12 text-center">
-                    <h1 class="max-w-3xl text-3xl md:text-4xl font-bold mx-auto flex flex-col md:flex-row items-center justify-center">
-                        <Icon styles="w-7 h-7" name="question"/>
-                        <span class="ml-2">{{ block.data.title }}</span>
+                    <h1 class="max-w-3xl text-3xl md:text-4xl font-bold mx-auto">
+                        {{ block.data.title }}
                     </h1>
                 </div>
                 <div class="max-w-3xl mx-auto mt-16 space-y-8">
@@ -25,13 +24,9 @@
 
 <script>
     import { defineComponent } from 'vue'
-    import Icon from '../../Icon.vue'
 
     export default defineComponent({
         name: 'FAQList',
-        components: {
-            Icon,
-        },
         props: {
             block: {
                 type: Object,
