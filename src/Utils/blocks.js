@@ -18,7 +18,7 @@ const groups = ref([
                     darkMode: true,
                     title: 'Venda todo dia usando o Facebook ADS!!!',
                     subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
-                    imageUrl: 'https://getbootstrap.com/docs/5.1/examples/heroes/bootstrap-themes.png',
+                    imageUrl: '/images/samples/v1/heroes/ebook-cover.png',
                     buttonText: 'Comprar Agora!!!',
                     buttonLink: 'https://google.com',
                 }
@@ -62,11 +62,11 @@ const groups = ref([
             {
                 uuid: uuidv4(),
                 type: 'features',
-                model: 'grid-4',
-                componentName: 'FeaturesGrid4',
-                optionsComponentName: 'FeaturesGrid4Options',
-                description: 'Grid 4x1',
-                thumbUrl: '/images/thumbs/v1/features/grid-4.png',
+                model: 'grid-3',
+                componentName: 'FeaturesGrid3',
+                optionsComponentName: 'FeaturesGrid3Options',
+                description: 'Grid 3x1',
+                thumbUrl: '/images/thumbs/v1/features/grid-3.png',
                 data: {
                     darkMode: true,
                     title: 'Os benefícios do seu produto aqui',
@@ -132,7 +132,7 @@ const groups = ref([
                     darkMode: true,
                     title: 'About the author',
                     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis provident, itaque doloribus earum nostrum iste nesciunt excepturi neque eius, numquam alias eos, delectus quo illum eaque consequuntur consectetur! Sequi soluta porro, magni possimus a tempore quas rem commodi aut pariatur quaerat natus sunt, nihil voluptate maxime beatae atque assumenda similique!',
-                    imageUrl: '/images/blocks/v1/authors/sample.jpg'
+                    imageUrl: '/images/samples/v1/authors/sample.jpg'
                 }
             },
         ]
@@ -261,7 +261,7 @@ const groups = ref([
                     darkMode: false,
                     title: 'Garantia Incondicional de 7 Dias',
                     description: 'Esse ebook é tudo que você precisa para começar a vender online e construir uma renda passiva mensal que trabalha 24h por dia, 7 dias por semana automaticamente enquanto vocẽ dorme.',
-                    imageUrl: '/images/blocks/v1/guarantee/7-days.png',
+                    imageUrl: '/images/samples/v1/guarantee/7-days.png',
                 }
             },
             {
@@ -276,7 +276,7 @@ const groups = ref([
                     darkMode: false,
                     title: 'Garantia Incondicional de 10 Dias',
                     description: 'Esse ebook é tudo que você precisa para começar a vender online e construir uma renda passiva mensal que trabalha 24h por dia, 10 dias por semana automaticamente enquanto vocẽ dorme.',
-                    imageUrl: '/images/blocks/v1/guarantee/10-days.png',
+                    imageUrl: '/images/samples/v1/guarantee/10-days.png',
                 }
             },
             {
@@ -291,7 +291,7 @@ const groups = ref([
                     darkMode: false,
                     title: 'Garantia Incondicional de 15 Dias',
                     description: 'Esse ebook é tudo que você precisa para começar a vender online e construir uma renda passiva mensal que trabalha 24h por dia, 15 dias por semana automaticamente enquanto vocẽ dorme.',
-                    imageUrl: '/images/blocks/v1/guarantee/15-days.png',
+                    imageUrl: '/images/samples/v1/guarantee/15-days.png',
                 }
             },
             {
@@ -306,7 +306,7 @@ const groups = ref([
                     darkMode: false,
                     title: 'Garantia Incondicional de 30 Dias',
                     description: 'Esse ebook é tudo que você precisa para começar a vender online e construir uma renda passiva mensal que trabalha 24h por dia, 30 dias por semana automaticamente enquanto vocẽ dorme.',
-                    imageUrl: '/images/blocks/v1/guarantee/30-days.png',
+                    imageUrl: '/images/samples/v1/guarantee/30-days.png',
                 }
             },
         ]

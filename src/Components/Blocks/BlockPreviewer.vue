@@ -11,7 +11,7 @@
 
     import BuySimple from './Buy/BuySimple.vue'
 
-    import FeaturesGrid4 from './Features/FeaturesGrid4.vue'
+    import FeaturesGrid3 from './Features/FeaturesGrid3.vue'
 
     import Guarantee7Days from './Guarantees/Guarantee7Days.vue'
     import Guarantee10Days from './Guarantees/Guarantee10Days.vue'
@@ -29,7 +29,7 @@
             HeroVideoCenter,
             AuthorImageLeft,
             BuySimple,
-            FeaturesGrid4,
+            FeaturesGrid3,
             Guarantee7Days,
             Guarantee10Days,
             Guarantee15Days,

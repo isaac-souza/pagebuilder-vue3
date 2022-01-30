@@ -51,8 +51,8 @@
     import BuySimple from './Buy/BuySimple.vue'
     import BuySimpleOptions from './Buy/BuySimpleOptions.vue'
 
-    import FeaturesGrid4 from './Features/FeaturesGrid4.vue'
-    import FeaturesGrid4Options from './Features/FeaturesGrid4Options.vue'
+    import FeaturesGrid3 from './Features/FeaturesGrid3.vue'
+    import FeaturesGrid3Options from './Features/FeaturesGrid3Options.vue'
     
     import Guarantee7Days from './Guarantees/Guarantee7Days.vue'
     import Guarantee7DaysOptions from './Guarantees/Guarantee7DaysOptions.vue'
@@ -89,8 +89,8 @@
             BuySimple,
             BuySimpleOptions,
 
-            FeaturesGrid4,
-            FeaturesGrid4Options,
+            FeaturesGrid3,
+            FeaturesGrid3Options,
 
             Guarantee7Days,
             Guarantee7DaysOptions,
