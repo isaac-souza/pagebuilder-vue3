@@ -59,15 +59,23 @@ const Api = {
         }
     },
 
-    fetchLandingPages: async () => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.get('/api/v1/landing-pages')
-
-            return response.data.data
-        } catch (error) {
-            return null
-        }
+    fetchLandingPages: () => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.get('/api/v1/landing-pages')
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+            
+        })
     },
 
     fetchLandingPage: async (uuid) => {
@@ -112,7 +120,25 @@ const Api = {
         } catch (error) {
             return null
         }
+
+    createLandingPage: (data) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.post('/api/v1/landing-pages', data)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     }
+
 }
 
 export default Api
