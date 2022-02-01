@@ -40,28 +40,29 @@
 </template>
 
 <script>
-    import { defineComponent, onMounted, ref } from 'vue'
-    import Api from '../../../Utils/api'
+    import { defineComponent, onMounted } from 'vue'
+    import { useStore } from 'vuex'
+    import { ACTION_GET_LANDING_PAGES } from '../../../Utils/action-types'
+
     import AppLayout from '../../../Layouts/App.vue'
     import Icon from '../../../Components/Icon.vue'
+    import LandingPageCard from './Components/LandingPageCard.vue'
 
     export default defineComponent({
         name: 'Dashboard',
         components: {
             AppLayout,
             Icon,
+            LandingPageCard,
         },
         setup() {
-            const landingPages = ref({})
+            const store = useStore()
 
             onMounted(() => {
-                Api.fetchLandingPages()
-                    .then(result => {
-                        landingPages.value = result
-                    })
+                store.dispatch(ACTION_GET_LANDING_PAGES)
             })
 
-            return { landingPages}
+            return { store }
         },
     })
 </script>
