@@ -54,7 +54,8 @@ const Api = {
             const response = await axios.get('/api/v1/auth/check')
             
             return response.data.authenticated
-        } catch (error) {
+        }
+        catch (error) {
             return false
         }
     },
@@ -84,7 +85,8 @@ const Api = {
             const response = await axios.get('/api/v1/landing-pages/' + uuid)
 
             return response.data.data
-        } catch (error) {
+        }
+        catch (error) {
             return null
         }
     },
@@ -95,18 +97,20 @@ const Api = {
             const response = await axios.get('/api/v1/auth/account')
 
             return response.data.data
-        } catch (error) {
+        }
+        catch (error) {
             return null
         }
     },
 
-    updateLandingPage: async (uuid, data) => {
+    updateMainPage: async (uuid, data) => {
         try {
             await axios.get('/sanctum/csrf-cookie')
             const response = await axios.put('/api/v1/landing-pages/' + uuid, {pages: data})
 
             return response.data
-        } catch (error) {
+        }
+        catch (error) {
             return null
         }
     },
@@ -117,9 +121,11 @@ const Api = {
             const response = await axios.put('/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
 
             return response.data
-        } catch (error) {
+        }
+        catch (error) {
             return null
         }
+    },
 
     deleteLandingPage: async (uuid) => {
         try {
