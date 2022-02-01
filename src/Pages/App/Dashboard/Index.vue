@@ -1,40 +1,16 @@
 <template>
     <AppLayout>
         <div class="flex flex-col items-end md:flex-row md:justify-between md:items-center mb-8">
-            <div>
-                <h2 class="text-2xl font-normal text-gray-600">My landing pages</h2>
-            </div>
-            <div>
-                <router-link to="/app/landing-pages/create" class="btn btn-primary">
-                    New landing page
-                </router-link>
-            </div>
+            <h2 class="text-2xl font-normal text-gray-600">My landing pages</h2>
+            <router-link to="/app/landing-pages/create" class="btn btn-primary">
+                New landing page
+            </router-link>
         </div>
         
         <div class="grid grid-cols-12 gap-4 p-4 md:p-0">
-
-            <div v-for="landingPage in landingPages" :key="landingPage.uuid" class="col-span-12 md:col-span-4 lg:col-span-3">
-                <div class="card card-bordered border border-gray-300">
-                    <figure>
-                        <img src="https://picsum.photos/id/1005/400/250" loading="lazy">
-                    </figure> 
-                    <div class="card-body p-4">
-                        <h2 class="card-title text-base font-normal">{{ landingPage.name }}</h2> 
-                        <div class="justify-end card-actions m-0">
-                            <a :href="'/app/preview/' + landingPage.uuid + '/main'" target="_blank" class="btn btn-square btn-sm btn-outline btn-primary">
-                                <Icon name="external-link" styles="w-3 h-3"/>
-                            </a>
-                            <router-link :to="'/app/builder/' + landingPage.uuid + '/main'" class="btn btn-square btn-sm btn-outline btn-primary">
-                                <Icon name="edit" styles="w-3 h-3"/>
-                            </router-link>
-                            <button class="btn btn-square btn-sm btn-outline btn-error">
-                                <Icon name="trash" styles="w-3 h-3"/>
-                            </button>
-                        </div>
-                    </div>
-                </div> 
+            <div v-for="landingPage in store.state.landingPages" :key="landingPage.uuid" class="col-span-12 md:col-span-4 lg:col-span-3">
+                <LandingPageCard :landingPage="landingPage"/>
             </div>
-
         </div>
     </AppLayout>
 </template>
