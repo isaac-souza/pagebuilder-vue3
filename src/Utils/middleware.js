@@ -1,8 +1,4 @@
-import axios from 'axios'
 import Api from './api'
-
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost'
 
 const Middleware = {
     auth: async (to, from, next) => {
