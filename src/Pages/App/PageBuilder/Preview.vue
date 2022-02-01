@@ -1,6 +1,6 @@
 <template>
     <BuilderLayout>
-        <div v-for="(block, index) in page" :key="block.uuid">
+        <div v-for="(block, index) in draft" :key="block.uuid">
             <BlockPreviewer :block="block" :first="index == 0"/>
         </div>
     </BuilderLayout>
@@ -9,7 +9,10 @@
 <script>
     import { onMounted, ref } from 'vue'
     import { useRoute } from 'vue-router'
-    import Api from '../../../Utils/api'
+    import { useStore } from 'vuex'
+
+    import { ACTION_GET_LANDING_PAGES } from '../../../Utils/action-types'
+
     import BuilderLayout from '../../../Layouts/Builder.vue'
     import BlockPreviewer from '../../../Components/Blocks/BlockPreviewer.vue'
 
@@ -20,16 +23,29 @@
             BuilderLayout,
         },
         setup() {
-            const page = ref([])
+            const draft = ref([])
             const route = useRoute()
+            const store = useStore()
 
-            onMounted(async () => {
-                const result = await Api.fetchLandingPage(route.params.uuid)
+            onMounted(() => {
+                let result = store.getters.findLandingPage(route.params.uuid)
+                
+                if(result == null) {
+                    store.dispatch(ACTION_GET_LANDING_PAGES)
+                        .then(response => {
+                            // console.log(response)
 
-                page.value = result.draft.main
+                            result = store.getters.findLandingPage(route.params.uuid)
+                            
+                            draft.value = result.draft.main
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
             })
 
-            return { page }
+            return { draft }
         },
     }
 </script>
