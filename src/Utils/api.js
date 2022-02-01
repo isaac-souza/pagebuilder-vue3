@@ -121,6 +121,22 @@ const Api = {
             return null
         }
 
+    deleteLandingPage: async (uuid) => {
+        try {
+            await axios.get('/sanctum/csrf-cookie')
+            const response = await axios.delete('/api/v1/landing-pages/' + uuid)
+
+            if(response.status == 204) {
+                return true
+            }
+
+            return false
+        }
+        catch (error) {
+            return false
+        }
+    },
+
     createLandingPage: (data) => {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
