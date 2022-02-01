@@ -50,8 +50,12 @@
 
 <script>
     import { onMounted, ref } from 'vue'
-    import { v4 as uuidv4 } from 'uuid'
     import { useRoute } from 'vue-router'
+    import { useStore } from 'vuex'
+
+    import { ACTION_GET_LANDING_PAGES } from '../../../Utils/action-types'
+
+    import { v4 as uuidv4 } from 'uuid'
 
     import api from '../../../Utils/api'
     import blocks from '../../../Utils/blocks'
@@ -75,6 +79,7 @@
         },
         setup() {
             const route = useRoute()
+            const store = useStore()
 
             const groups = blocks.groups
             const draft = ref([])
@@ -89,7 +94,13 @@
             }
 
             onMounted(async () => {
-                const result = await api.fetchLandingPage(route.params.uuid)
+                let result = store.getters.findLandingPage(route.params.uuid)
+                
+                if(result == null) {
+                    await store.dispatch(ACTION_GET_LANDING_PAGES)
+                    result = store.getters.findLandingPage(route.params.uuid)
+                }
+
                 draft.value = result.draft.main
             })
 
