@@ -37,7 +37,12 @@
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
+    import { defineComponent, ref } from 'vue'
+    import { useStore } from 'vuex'
+    import { useRouter } from 'vue-router'
+
+    import { ACTION_CREATE_LANDING_PAGE } from '../../../Utils/action-types'
+
     import AppLayout from '../../../Layouts/App.vue'
 
     export default defineComponent({
@@ -46,7 +51,25 @@
             AppLayout,
         },
         setup() {
-            
+            const store = useStore()
+            const router = useRouter()
+
+            const easyMode = ref(true)
+            const form = ref({
+                name: null
+            })
+
+            const submit = () => {
+                store.dispatch(ACTION_CREATE_LANDING_PAGE, form.value)
+                    .then(() => {
+                        router.push({name: 'Dashboard'})
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
+
+            return { easyMode, submit, form }
         },
     })
 </script>
