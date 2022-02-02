@@ -53,11 +53,16 @@
     import { useRoute } from 'vue-router'
     import { useStore } from 'vuex'
 
-    import { ACTION_GET_LANDING_PAGES } from '../../../Utils/action-types'
+    import { 
+        ACTION_GET_LANDING_PAGES,
+        ACTION_UPDATE_DRAFT,
+        ACTION_UPDATE_PAGES,
+
+        ACTION_SHOW_ALERT,
+    } from '../../../Utils/action-types'
 
     import { v4 as uuidv4 } from 'uuid'
 
-    import api from '../../../Utils/api'
     import blocks from '../../../Utils/blocks'
 
     import Draggable from 'vuedraggable'
@@ -104,12 +109,26 @@
                 draft.value = result.draft.main
             })
 
-            const save = async () => {
-                await api.updateDraft(route.params.uuid, draft.value)
+            const save = () => {
+                store.dispatch(ACTION_UPDATE_DRAFT, {uuid: route.params.uuid, draft: draft.value})
+                    .then(response => {
+                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'success', message: 'Página salva com sucesso!' }})
+                    })
+                    .catch(error => {
+                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'error', message: 'Problema ao tentar salvar a página, tente novamente.' }})
+                    })
             }
 
-            const publish = async () => {
-                await api.updateLandingPage(route.params.uuid, draft.value)
+            const publish = () => {
+                store.dispatch(ACTION_UPDATE_PAGES, {uuid: route.params.uuid, pages: draft.value})
+                    .then(response => {
+                        // 
+                    })
+                    .catch(error => {
+                        // 
+                    })
+                
+                // api.updatePages(route.params.uuid, draft.value)
             }
 
             return { groups, draft, cloneBlock, deleteBlock, save, publish, route }

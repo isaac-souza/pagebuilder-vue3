@@ -23,7 +23,11 @@
 <script>
     import { defineComponent } from 'vue'
     import { useStore } from 'vuex'
-    import { ACTION_DELETE_LANDING_PAGE } from '../../../../Utils/action-types'
+
+    import { 
+        ACTION_DELETE_LANDING_PAGE,
+        ACTION_SHOW_ALERT
+    } from '../../../../Utils/action-types'
 
     import Icon from '../../../../Components/Icon.vue'
 
@@ -41,8 +45,14 @@
         setup(props) {
             const store = useStore()
 
-            const remove = async () => {
-                await store.dispatch(ACTION_DELETE_LANDING_PAGE, props.landingPage.uuid)
+            const remove = () => {
+                store.dispatch(ACTION_DELETE_LANDING_PAGE, props.landingPage.uuid)
+                    .then(response => {
+                        store.dispatch(ACTION_SHOW_ALERT, { type: 'success', message: 'Página excluida com sucesso!' })
+                    })
+                    .catch(error => {
+                        store.dispatch(ACTION_SHOW_ALERT, { type: 'error', message: 'Problema ao tentar excluir a página, tente novamente.' })
+                    })
             }
 
             return { remove }
