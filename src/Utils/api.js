@@ -79,16 +79,22 @@ const Api = {
         })
     },
 
-    fetchLandingPage: async (uuid) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.get('/api/v1/landing-pages/' + uuid)
-
-            return response.data.data
-        }
-        catch (error) {
-            return null
-        }
+    getLandingPage: async (uuid) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.get('/api/v1/landing-pages/' + uuid)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
     getLandingPageBySlug: (slug) => {
@@ -109,51 +115,76 @@ const Api = {
         })
     },
 
-            return response.data.data
-        }
-        catch (error) {
-            return null
-        }
+    fetchAccount: async () => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.get('/api/v1/auth/account')
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
-    updateMainPage: async (uuid, data) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.put('/api/v1/landing-pages/' + uuid, {pages: data})
-
-            return response.data
-        }
-        catch (error) {
-            return null
-        }
+    updatePages: (uuid, data) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.put('/api/v1/landing-pages/' + uuid, {pages: data})
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
     updateDraft: async (uuid, data) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.put('/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
-
-            return response.data
-        }
-        catch (error) {
-            return null
-        }
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.put('/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
-    deleteLandingPage: async (uuid) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.delete('/api/v1/landing-pages/' + uuid)
-
-            if(response.status == 204) {
-                return true
-            }
-
-            return false
-        }
-        catch (error) {
-            return false
-        }
+    deleteLandingPage: (uuid) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.delete('/api/v1/landing-pages/' + uuid)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
     createLandingPage: (data) => {
