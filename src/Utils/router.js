@@ -14,9 +14,9 @@ import PageView from '../Pages/Public/LandingPage/View.vue'
 
 import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 
-import WebsiteHome from '../Pages/Marketing/Home.vue'
-import WebsitePricing from '../Pages/Marketing/Pricing.vue'
-import WebsiteContact from '../Pages/Marketing/Contact.vue'
+import WebsiteHome from '../Pages/Public/Marketing/Home.vue'
+import WebsitePricing from '../Pages/Public/Marketing/Pricing.vue'
+import WebsiteContact from '../Pages/Public/Marketing/Contact.vue'
 
 const routes = [
     //
