@@ -1,14 +1,21 @@
 <template>
-    <BuilderLayout>
-        <div v-for="(block, index) in draft" :key="block.uuid">
-            <BlockPreviewer :block="block" :first="index == 0"/>
-        </div>
-    </BuilderLayout>
+    <div>
+        <template v-if="draft.length">
+            <BuilderLayout>
+                <div v-for="(block, index) in draft" :key="block.uuid">
+                    <BlockPreviewer :block="block" :first="index == 0"/>
+                </div>
+            </BuilderLayout>
+        </template>
+        <template v-else>
+            Empty page...
+        </template>
+    </div>
 </template>
 
 <script>
     import { onMounted, ref } from 'vue'
-    import { useRoute } from 'vue-router'
+    import { useRoute, useRouter } from 'vue-router'
     import { useStore } from 'vuex'
 
     import { ACTION_GET_LANDING_PAGES } from '../../../Utils/action-types'
@@ -25,6 +32,7 @@
         setup() {
             const draft = ref([])
             const route = useRoute()
+            const router = useRouter()
             const store = useStore()
 
             onMounted(() => {
@@ -33,8 +41,6 @@
                 if(result == null) {
                     store.dispatch(ACTION_GET_LANDING_PAGES)
                         .then(response => {
-                            // console.log(response)
-
                             result = store.getters.findLandingPage(route.params.uuid)
                             
                             draft.value = result.draft.main
