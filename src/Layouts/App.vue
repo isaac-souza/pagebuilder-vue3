@@ -25,6 +25,7 @@
             </div>
         </div>
         <div class="max-w-5xl mx-auto py-8 space-y-4">
+            <Alert/>
             <slot/>
         </div>
         <BreakPointHelper/>
@@ -35,12 +36,15 @@
     import { defineComponent } from 'vue'
     import { useRouter } from 'vue-router'
     import Api from '../Utils/api'
+
     import BreakPointHelper from '../Components/BreakPointHelper.vue'
+    import Alert from '../Components/Alert.vue'
 
     export default defineComponent({
         name: 'AppLayout',
         components: {
-            BreakPointHelper
+            BreakPointHelper,
+            Alert,
         },
         setup() {
             const router = useRouter()
