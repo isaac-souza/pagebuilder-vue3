@@ -6,7 +6,7 @@
         <div class="card-body p-4">
             <h2 class="card-title text-base font-normal">{{ landingPage.name }}</h2> 
             <div class="justify-end card-actions m-0">
-                <a :href="'/app/preview/' + landingPage.uuid + '/main'" target="_blank" class="btn btn-square btn-sm btn-outline btn-primary">
+                <a :href="'/' + landingPage.slug" target="_blank" class="btn btn-square btn-sm btn-outline btn-primary">
                     <Icon name="external-link" styles="w-3 h-3"/>
                 </a>
                 <router-link :to="'/app/builder/' + landingPage.uuid + '/main'" class="btn btn-square btn-sm btn-outline btn-primary">
