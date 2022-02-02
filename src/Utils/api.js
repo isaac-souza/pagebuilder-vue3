@@ -91,10 +91,23 @@ const Api = {
         }
     },
 
-    fetchAccount: async () => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.get('/api/v1/auth/account')
+    getLandingPageBySlug: (slug) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.get('/api/v1/public/landing-pages/' + slug)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
 
             return response.data.data
         }

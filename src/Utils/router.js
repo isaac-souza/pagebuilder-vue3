@@ -10,6 +10,7 @@ import Dashboard from '../Pages/App/Dashboard/Index.vue'
 
 import PageBuilder from '../Pages/App/PageBuilder/Builder.vue'
 import PagePreview from '../Pages/App/PageBuilder/Preview.vue'
+import PageView from '../Pages/Public/LandingPage/View.vue'
 
 import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 
@@ -102,6 +103,15 @@ const routes = [
             },
         ],
     },
+
+    //
+    // Public landing pages
+    //
+    {
+        path: '/:slug',
+        name: 'PageView',
+        component: PageView,
+    }
 ]
 
 const Router = createRouter({

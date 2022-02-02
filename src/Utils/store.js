@@ -9,6 +9,7 @@ import {
 
 import {
     ACTION_GET_LANDING_PAGES,
+    ACTION_GET_LANDING_PAGE_BY_SLUG,
     ACTION_DELETE_LANDING_PAGE,
     ACTION_CREATE_LANDING_PAGE,
 } from './action-types'
@@ -93,5 +94,18 @@ export default createStore({
                     })
             })
         },
+
+        [ACTION_GET_LANDING_PAGE_BY_SLUG]: (context, slug) => {
+            return new Promise((resolve, reject) => {
+                Api.getLandingPageBySlug(slug)
+                    .then(response => {
+                        resolve(response.data)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
     }
 })
