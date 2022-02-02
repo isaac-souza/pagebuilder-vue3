@@ -40,7 +40,7 @@
                             draft.value = result.draft.main
                         })
                         .catch(error => {
-                            console.log(error)
+                            router.push({name: 'Dashboard'})
                         })
                 }
             })
