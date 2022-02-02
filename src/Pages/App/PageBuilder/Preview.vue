@@ -1,15 +1,10 @@
 <template>
     <div>
-        <template v-if="draft.length">
-            <BuilderLayout>
-                <div v-for="(block, index) in draft" :key="block.uuid">
-                    <BlockPreviewer :block="block" :first="index == 0"/>
-                </div>
-            </BuilderLayout>
-        </template>
-        <template v-else>
-            Empty page...
-        </template>
+        <BuilderLayout>
+            <div v-for="(block, index) in draft" :key="block.uuid">
+                <BlockPreviewer :block="block" :first="index == 0"/>
+            </div>
+        </BuilderLayout>
     </div>
 </template>
 
