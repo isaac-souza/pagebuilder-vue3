@@ -109,7 +109,7 @@
 
 <script>
     import { defineComponent } from 'vue'
-    import MarketingLayout from '../../Layouts/Marketing.vue'
+    import MarketingLayout from '../../../Layouts/Marketing.vue'
 
     export default defineComponent({
         name: 'WebsiteHome',
