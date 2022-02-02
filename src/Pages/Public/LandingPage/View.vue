@@ -1,6 +1,8 @@
 <template>
-    <div v-for="(block, index) in page" :key="block.uuid">
-        <BlockPreviewer :block="block" :first="index == 0"/>
+    <div>
+        <div v-for="(block, index) in page" :key="block.uuid">
+            <BlockPreviewer :block="block" :first="index == 0"/>
+        </div>
     </div>
 </template>
 
