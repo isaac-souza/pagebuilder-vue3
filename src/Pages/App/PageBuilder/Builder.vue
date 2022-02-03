@@ -127,8 +127,6 @@
                     .catch(error => {
                         // 
                     })
-                
-                // api.updatePages(route.params.uuid, draft.value)
             }
 
             return { groups, draft, cloneBlock, deleteBlock, save, publish, route }
