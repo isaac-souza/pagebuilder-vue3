@@ -97,11 +97,9 @@
             }
 
             const remove = (uuidToRemove) => {
-                const faq = block.value.data.list.find((faq) => {
+                const index = block.value.data.list.findIndex((faq) => {
                     return faq.uuid == uuidToRemove
                 })
-
-                let index = block.value.data.list.lastIndexOf(faq)
 
                 block.value.data.list.splice(index, 1);
             }

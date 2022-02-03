@@ -98,11 +98,9 @@
             }
 
             const remove = (uuidToRemove) => {
-                const feature = block.value.data.list.find((features) => {
+                const index = block.value.data.list.findIndex((features) => {
                     return features.uuid == uuidToRemove
                 })
-
-                let index = block.value.data.list.lastIndexOf(feature)
 
                 block.value.data.list.splice(index, 1);
             }
