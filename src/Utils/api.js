@@ -203,6 +203,60 @@ const Api = {
                     reject(error)
                 })
         })
+    },
+
+    getImages: () => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.get('/api/v1/image-gallery')
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
+
+    uploadImage: (data) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.post('/api/v1/image-gallery/', data)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
+
+    deleteImage: (uuid) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.delete('/api/v1/image-gallery/' + uuid)
+                        .then(response => {
+                            resolve(response.data)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     }
 
 }

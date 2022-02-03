@@ -14,6 +14,8 @@ import PageView from '../Pages/Public/LandingPage/View.vue'
 
 import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 
+import ImageGalleryIndex from '../Pages/App/ImageGallery/Index.vue'
+
 import WebsiteHome from '../Pages/Public/Marketing/Home.vue'
 import WebsitePricing from '../Pages/Public/Marketing/Pricing.vue'
 import WebsiteContact from '../Pages/Public/Marketing/Contact.vue'
@@ -97,6 +99,14 @@ const routes = [
                 path: '/app/preview/:uuid/:type',
                 name: 'PagePreview',
                 component: PagePreview,
+                beforeEnter: (to, from, next) => {
+                    return middleware.auth(to, from, next)
+                },
+            },
+            {
+                path: '/app/image-gallery',
+                name: 'ImageGalleryIndex',
+                component: ImageGalleryIndex,
                 beforeEnter: (to, from, next) => {
                     return middleware.auth(to, from, next)
                 },

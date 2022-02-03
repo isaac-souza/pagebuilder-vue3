@@ -13,6 +13,11 @@
                     </router-link>
                 </div>
                 <div class="items-stretch hidden lg:flex">
+                    <router-link to="/app/image-gallery" class="btn btn-ghost rounded-btn">
+                        Image Gallery
+                    </router-link>
+                </div>
+                <div class="items-stretch hidden lg:flex">
                     <router-link to="/app/integrations" class="btn btn-ghost rounded-btn">
                         Integrations
                     </router-link>

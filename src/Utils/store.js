@@ -8,6 +8,10 @@ import {
     MUTATION_UPDATE_LANDING_PAGE,
 
     MUTATION_SET_ALERT,
+
+    MUTATION_SET_IMAGES,
+    MUTATION_ADD_IMAGE,
+    MUTATION_DELETE_IMAGE,
 } from './mutation-types'
 
 import {
@@ -20,12 +24,18 @@ import {
 
     ACTION_DISMISS_ALERT,
     ACTION_SHOW_ALERT,
+
+    ACTION_GET_IMAGES,
+    ACTION_UPLOAD_IMAGE,
+    ACTION_FIND_IMAGE_BY_UUID,
+    ACTION_DELETE_IMAGE,
 } from './action-types'
 
 export default createStore({
     state() {
         return {
             landingPages: null,
+            images: null,
             alert: {
                 show: false,
                 type: null,
@@ -56,6 +66,19 @@ export default createStore({
         [MUTATION_SET_ALERT](state, payload) {
             state.alert = payload.alert
         },
+
+        [MUTATION_SET_IMAGES](state, payload) {
+            state.images = payload.images
+        },
+
+        [MUTATION_ADD_IMAGE](state, payload) {
+            state.images.push(payload.image)
+        },
+
+        [MUTATION_DELETE_IMAGE](state, payload) {
+            let index = state.images.findIndex(image => image.uuid == payload.uuid)
+            state.images.splice(index, 1)
+        },
     },
 
     getters: {
@@ -65,6 +88,13 @@ export default createStore({
             }
 
             return state.landingPages.find(landingPage => landingPage.uuid == uuid)
+        },
+        findImagePageByUuid: (state) => (uuid) => {
+            if(state.images == null) {
+                return null
+            }
+
+            return state.images.find(image => image.uuid == uuid)
         },
     },
 
@@ -203,5 +233,58 @@ export default createStore({
                 }
             })
         },
+
+        [ACTION_GET_IMAGES]: (context) => {
+            return new Promise((resolve, reject) => {
+                Api.getImages()
+                    .then(response => {
+                        context.commit(MUTATION_SET_IMAGES, {images: response.data})
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
+        [ACTION_UPLOAD_IMAGE]: (context, data) => {
+            return new Promise((resolve, reject) => {
+                Api.uploadImage(data)
+                    .then(response => {
+                        console.log(response)
+                        context.commit(MUTATION_ADD_IMAGE, {image: response})
+                        resolve(response.data)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
+        [ACTION_FIND_IMAGE_BY_UUID]: (context, slug) => {
+            return new Promise((resolve, reject) => {
+                Api.getLandingPageBySlug(slug)
+                    .then(response => {
+                        resolve(response.data)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
+        [ACTION_DELETE_IMAGE]: (context, uuid) => {
+            return new Promise((resolve, reject) => {
+                Api.deleteImage(uuid)
+                    .then(response => {
+                        context.commit(MUTATION_DELETE_IMAGE, {uuid: uuid})
+                        resolve(response.data)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
     }
 })
