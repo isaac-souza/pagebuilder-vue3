@@ -67,6 +67,9 @@
     import Guarantee30Days from './Guarantees/Guarantee30Days.vue'
     import Guarantee30DaysOptions from './Guarantees/Guarantee30DaysOptions.vue'
 
+    import ChaptersCollapse from './Chapters/ChaptersCollapse.vue'
+    import ChaptersCollapseOptions from './Chapters/ChaptersCollapseOptions.vue'
+
     import FAQCollapse from './FAQ/FAQCollapse.vue'
     import FAQCollapseOptions from './FAQ/FAQCollapseOptions.vue'
     import FAQList from './FAQ/FAQList.vue'
@@ -102,6 +105,9 @@
             Guarantee15DaysOptions,
             Guarantee30Days,
             Guarantee30DaysOptions,
+
+            ChaptersCollapse,
+            ChaptersCollapseOptions,
 
             FAQCollapse,
             FAQCollapseOptions,

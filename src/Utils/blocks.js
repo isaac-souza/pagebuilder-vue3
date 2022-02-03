@@ -247,6 +247,53 @@ const groups = ref([
     },
     {
         uuid: uuidv4(),
+        title: 'Chapters',
+        blocks: [
+            {
+                uuid: uuidv4(),
+                type: 'chapters',
+                model: 'collapse',
+                componentName: 'ChaptersCollapse',
+                optionsComponentName: 'ChaptersCollapseOptions',
+                description: 'Collapse',
+                thumbUrl: '/images/thumbs/v1/chapters/collapse.png',
+                data: {
+                    darkMode: false,
+                    title: 'The Chapters',
+                    imageUrl: '/images/samples/v1/chapters/ebook-cover.png',
+                    list: [
+                        {
+                            uuid: uuidv4(),
+                            title: 'Chapter 1 - Lorem ipsum dolor sit amet',
+                            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                        },
+                        {
+                            uuid: uuidv4(),
+                            title: 'Chapter 2 - Lorem ipsum dolor sit amet',
+                            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                        },
+                        {
+                            uuid: uuidv4(),
+                            title: 'Chapter 3 - Lorem ipsum dolor sit amet',
+                            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                        },
+                        {
+                            uuid: uuidv4(),
+                            title: 'Chapter 4 - Lorem ipsum dolor sit amet',
+                            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                        },
+                        {
+                            uuid: uuidv4(),
+                            title: 'Chapter 5 - Lorem ipsum dolor sit amet',
+                            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                        },
+                    ]
+                }
+            },
+        ]
+    },
+    {
+        uuid: uuidv4(),
         title: 'Guarantees',
         blocks: [
             {
