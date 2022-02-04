@@ -2,7 +2,7 @@
     <AppLayout>
         <div class="flex flex-col items-end md:flex-row md:justify-between md:items-center mb-8">
             <h2 class="text-2xl font-normal text-gray-600">Image Gallery</h2>
-            <input @input="upload" type="file" class="btn btn-primary" ref="input">
+            <ImageUploadButton/>
         </div>
 
         <div class="grid grid-cols-12 gap-4">
@@ -14,49 +14,30 @@
 </template>
 
 <script>
-    import { defineComponent, onMounted, ref } from 'vue'
+    import { defineComponent, onMounted } from 'vue'
     import { useStore } from 'vuex'
 
-    import { ACTION_GET_IMAGES, ACTION_SHOW_ALERT, ACTION_UPLOAD_IMAGE } from '../../../Utils/action-types'
+    import { ACTION_GET_IMAGES } from '../../../Utils/action-types'
     
     import AppLayout from '../../../Layouts/App.vue'
-    import Icon from '../../../Components/Icon.vue'
     import ImageCard from '../../../Components/ImageCard.vue'
+    import ImageUploadButton from '../../../Components/ImageUploadButton.vue'
 
     export default defineComponent({
         name: 'ImageGallery',
         components: {
             AppLayout,
-            Icon,
+            ImageUploadButton,
             ImageCard,
         },
         setup() {
             const store = useStore()
 
-            const upload = (event) => {
-                let data = new FormData()
-                data.append('file', event.target.files[0])
-
-                store.dispatch(ACTION_UPLOAD_IMAGE, data)
-                    .then(response => {
-                        store.dispatch(ACTION_SHOW_ALERT, {
-                            type: 'success',
-                            message: 'Image successfully uploaded!'
-                        })
-                    })
-                    .catch(error => {
-                        store.dispatch(ACTION_SHOW_ALERT, {
-                            type: 'error',
-                            message: 'Error while trying to uploaded the image.'
-                        })
-                    })
-            }
-
             onMounted(() => {
                 store.dispatch(ACTION_GET_IMAGES)
             })
 
-            return { store, upload }
+            return { store }
         },
     })
 </script>
