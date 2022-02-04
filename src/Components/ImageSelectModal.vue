@@ -1,5 +1,5 @@
 <template>
-    <teleport to="body">
+    <teleport to="#modal">
         <div v-if="show" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
             <div class="relative w-4/6 my-6 mx-auto">
                 <!--content-->
