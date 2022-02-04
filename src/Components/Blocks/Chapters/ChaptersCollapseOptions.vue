@@ -6,12 +6,13 @@
                 <span class="label-text text-base ml-2">Dark mode</span> 
             </label>
         </div>
-        <div class="form-control mb-8">
+        <div class="form-control">
             <label class="label -mb-2">
                 <span class="label-text">Section title</span>
             </label>
             <input v-model="block.data.title" type="text" class="input input-bordered input-sm">
         </div>
+        <ImageSelect v-model="block.data.imageUrl" class="mb-8"/>
 
         <div class="mt-8 font-bold uppercase text-sm text-gray-500">Add new chapter</div>
 
@@ -63,12 +64,14 @@
     import { defineComponent, computed, ref } from 'vue'
     import Icon from '../../Icon.vue'
     import { v4 as uuidv4 } from 'uuid'
+    import ImageSelect from '../../ImageSelect.vue'
 
     export default defineComponent({
         name: 'ChaptersCollapseOptions',
         emits: ['update:modelValue'],
         components: {
             Icon,
+            ImageSelect,
         },
         props: {
             modelValue: {

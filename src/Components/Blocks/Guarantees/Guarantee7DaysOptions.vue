@@ -18,21 +18,20 @@
             </label>
             <textarea v-model="block.data.description" class="textarea h-36 textarea-bordered"></textarea>
         </div>
-        <div class="form-control">
-            <label class="label -mb-2">
-                <span class="label-text">URL da capa</span>
-            </label>
-            <input v-model="block.data.imageUrl" type="text" class="input input-bordered input-sm">
-        </div>
+        <ImageSelect v-model="block.data.imageUrl"/>
     </div>
 </template>
 
 <script>
     import { defineComponent, computed } from 'vue'
+    import ImageSelect from '../../ImageSelect.vue'
 
     export default defineComponent({
         name: 'Guarantee7DaysOptions',
         emits: ['update:modelValue'],
+        components: {
+            ImageSelect,
+        },
         props: {
             modelValue: {
                 type: Object,
