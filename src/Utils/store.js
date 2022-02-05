@@ -251,9 +251,8 @@ export default createStore({
             return new Promise((resolve, reject) => {
                 Api.uploadImage(data)
                     .then(response => {
-                        console.log(response)
                         context.commit(MUTATION_ADD_IMAGE, {image: response})
-                        resolve(response.data)
+                        resolve(response)
                     })
                     .catch(error => {
                         reject(error)
