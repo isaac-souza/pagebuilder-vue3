@@ -209,7 +209,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/image-gallery')
+                    axios.get('/api/v1/images')
                         .then(response => {
                             resolve(response.data)
                         })
@@ -227,7 +227,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.post('/api/v1/image-gallery/', data)
+                    axios.post('/api/v1/images/', data)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -245,7 +245,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.delete('/api/v1/image-gallery/' + uuid)
+                    axios.delete('/api/v1/images/' + uuid)
                         .then(response => {
                             resolve(response.data)
                         })
