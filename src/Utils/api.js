@@ -22,7 +22,6 @@ const Api = {
 
     logout: async () => {
         try {
-            await axios.get('/sanctum/csrf-cookie')
             await axios.post('/logout')
 
             return true
@@ -50,7 +49,6 @@ const Api = {
 
     isAuthenticated: async () => {
         try {
-            await axios.get('/sanctum/csrf-cookie')
             const response = await axios.get('/v1/auth/check')
             
             return response.data.authenticated
@@ -62,34 +60,21 @@ const Api = {
 
     fetchLandingPages: () => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.get('/v1/landing-pages')
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.get('/v1/landing-pages')
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
                 })
-            
         })
     },
 
     getLandingPage: async (uuid) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.get('/v1/landing-pages/' + uuid)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.get('/v1/landing-pages/' + uuid)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -99,15 +84,9 @@ const Api = {
 
     getLandingPageBySlug: (slug) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.get('/v1/public/landing-pages/' + slug)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.get('/v1/public/landing-pages/' + slug)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -117,15 +96,9 @@ const Api = {
 
     fetchAccount: async () => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.get('/v1/auth/account')
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.get('/v1/auth/account')
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -135,15 +108,9 @@ const Api = {
 
     updatePages: (uuid, data) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.put('/v1/landing-pages/' + uuid, {pages: data})
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.put('/v1/landing-pages/' + uuid, {pages: data})
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -153,15 +120,9 @@ const Api = {
 
     updateDraft: async (uuid, data) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.put('/v1/landing-pages/' + uuid + '/draft', {pages: data})
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.put('/v1/landing-pages/' + uuid + '/draft', {pages: data})
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -171,15 +132,9 @@ const Api = {
 
     deleteLandingPage: (uuid) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.delete('/v1/landing-pages/' + uuid)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.delete('/v1/landing-pages/' + uuid)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -189,15 +144,9 @@ const Api = {
 
     createLandingPage: (data) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.post('/v1/landing-pages', data)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.post('/v1/landing-pages', data)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -207,15 +156,9 @@ const Api = {
 
     getImages: () => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.get('/v1/images')
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.get('/v1/images')
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -225,15 +168,9 @@ const Api = {
 
     uploadImage: (data) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.post('/v1/images/', data)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.post('/v1/images/', data)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
@@ -243,15 +180,9 @@ const Api = {
 
     deleteImage: (uuid) => {
         return new Promise((resolve, reject) => {
-            axios.get('/sanctum/csrf-cookie')
-                .then(() => {
-                    axios.delete('/v1/images/' + uuid)
-                        .then(response => {
-                            resolve(response.data)
-                        })
-                        .catch(error => {
-                            reject(error)
-                        })
+            axios.delete('/v1/images/' + uuid)
+                .then(response => {
+                    resolve(response.data)
                 })
                 .catch(error => {
                     reject(error)
