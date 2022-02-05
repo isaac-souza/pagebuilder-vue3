@@ -51,7 +51,7 @@ const Api = {
     isAuthenticated: async () => {
         try {
             await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.get('/api/v1/auth/check')
+            const response = await axios.get('/v1/auth/check')
             
             return response.data.authenticated
         }
@@ -64,7 +64,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/landing-pages')
+                    axios.get('/v1/landing-pages')
                         .then(response => {
                             resolve(response.data)
                         })
@@ -83,7 +83,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/landing-pages/' + uuid)
+                    axios.get('/v1/landing-pages/' + uuid)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -101,7 +101,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/public/landing-pages/' + slug)
+                    axios.get('/v1/public/landing-pages/' + slug)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -119,7 +119,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/auth/account')
+                    axios.get('/v1/auth/account')
                         .then(response => {
                             resolve(response.data)
                         })
@@ -137,7 +137,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.put('/api/v1/landing-pages/' + uuid, {pages: data})
+                    axios.put('/v1/landing-pages/' + uuid, {pages: data})
                         .then(response => {
                             resolve(response.data)
                         })
@@ -155,7 +155,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.put('/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
+                    axios.put('/v1/landing-pages/' + uuid + '/draft', {pages: data})
                         .then(response => {
                             resolve(response.data)
                         })
@@ -173,7 +173,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.delete('/api/v1/landing-pages/' + uuid)
+                    axios.delete('/v1/landing-pages/' + uuid)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -191,7 +191,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.post('/api/v1/landing-pages', data)
+                    axios.post('/v1/landing-pages', data)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -209,7 +209,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.get('/api/v1/images')
+                    axios.get('/v1/images')
                         .then(response => {
                             resolve(response.data)
                         })
@@ -227,7 +227,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.post('/api/v1/images/', data)
+                    axios.post('/v1/images/', data)
                         .then(response => {
                             resolve(response.data)
                         })
@@ -245,7 +245,7 @@ const Api = {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.delete('/api/v1/images/' + uuid)
+                    axios.delete('/v1/images/' + uuid)
                         .then(response => {
                             resolve(response.data)
                         })
