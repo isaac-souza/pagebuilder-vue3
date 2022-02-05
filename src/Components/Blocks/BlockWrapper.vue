@@ -9,7 +9,7 @@
                 <Icon name="move" class="h-5 w-5"/>
             </div>
             <div class="flex flex-col items-center justify-center drawer-content">
-                <label @click="toggleDrawer()" for="my-drawer" class="btn btn-sm btn-ghost drawer-button">
+                <label @click="toggleDrawer()" :for="block.uuid" class="btn btn-sm btn-ghost drawer-button">
                     <Icon name="settings" class="h-5 w-5"/>
                 </label>
             </div>
@@ -21,9 +21,9 @@
 
     <teleport to="body">
         <div v-if="showDrawer" class="fixed top-0 left-0">
-            <input id="my-drawer" type="checkbox" class="drawer-toggle">
+            <input :id="block.uuid" type="checkbox" class="drawer-toggle">
             <div class="drawer-side h-screen">
-                <label for="my-drawer" class="drawer-overlay"></label>
+                <label :for="block.uuid" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto border-r-2 w-64 bg-base-100 text-base-content">
                     <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Close</button>
                     <p class="my-4 font-bold uppercase">Block options</p>
