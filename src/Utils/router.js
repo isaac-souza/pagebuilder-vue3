@@ -14,7 +14,7 @@ import PageView from '../Pages/Public/LandingPage/View.vue'
 
 import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 
-import ImageGalleryIndex from '../Pages/App/ImageGallery/Index.vue'
+import ImageGallery from '../Pages/App/ImageGallery/Index.vue'
 
 import WebsiteHome from '../Pages/Public/Marketing/Home.vue'
 import WebsitePricing from '../Pages/Public/Marketing/Pricing.vue'
@@ -105,8 +105,8 @@ const routes = [
             },
             {
                 path: '/app/image-gallery',
-                name: 'ImageGalleryIndex',
-                component: ImageGalleryIndex,
+                name: 'ImageGallery',
+                component: ImageGallery,
                 beforeEnter: (to, from, next) => {
                     return Middleware.auth(to, from, next)
                 },
