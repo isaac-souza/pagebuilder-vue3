@@ -34,7 +34,9 @@
             const store = useStore()
 
             onMounted(() => {
-                store.dispatch(ACTION_GET_IMAGES)
+                if(store.state.images == null) {
+                    store.dispatch(ACTION_GET_IMAGES)
+                }
             })
 
             return { store }
