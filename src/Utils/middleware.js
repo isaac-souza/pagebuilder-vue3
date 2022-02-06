@@ -1,21 +1,19 @@
-import Api from './api'
-
 const Middleware = {
-    auth: async (to, from, next) => {
-        const isAuthenticated = await Api.isAuthenticated()
-
-        if (to.name !== 'Login' && !isAuthenticated) {
-            next({ name: 'Login' })
+    auth: (to, from, next) => {
+        const isAuthenticated = localStorage.getItem('ez_landingpage_authenticated')
+        
+        if (isAuthenticated == 'true') {
+            next()
         }
         else {
-            next()
+            next({ name: 'Login' })
         }
     },
 
-    guest: async (to, from, next) => {
-        const isAuthenticated = await Api.isAuthenticated()
+    guest: (to, from, next) => {
+        const isAuthenticated = localStorage.getItem('ez_landingpage_authenticated')
 
-        if ((to.name == 'Login' || to.name == 'Register') && isAuthenticated) {
+        if ((to.name == 'Login' || to.name == 'Register') && isAuthenticated == 'true') {
             next({ name: 'Dashboard' })
         }
         else {
