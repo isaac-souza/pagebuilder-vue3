@@ -24,26 +24,6 @@ Users don't need to write a single line of code.
 3. [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum)
 4. [Laravel Fortify](https://laravel.com/docs/8.x/fortify)
 
-## Setting up the frontend
-
-1. Clone the repo and navigate to the directory
-```
-git clone git@github.com:isaac-souza/pagebuilder-vue3.git
-cd pagebuilder-vue3
-```
-2. Install the dependencies
-```
-npm install
-```
-3. Copy the sample .env file
-```
-cp .env.example .env
-```
-4. Start the dev server
-```
-npm run dev
-```
-
 ## Setting up the backend
 
 1. Clone the repo and navigate to the directory
@@ -66,7 +46,7 @@ vendor/bin/sail up
 5. Generate key, run the migrations and link the storage folder
 ```
 vendor/bin/sail artisan key:generate
-vendor/bin/sail artisan migrate
+vendor/bin/sail artisan migrate --seed
 vendor/bin/sail artisan storage:link
 ```
 6. Run the tests
@@ -77,6 +57,34 @@ vendor/bin/sail artisan test
 ```
 http://localhost
 ```
+
+## Setting up the frontend
+
+1. Clone the repo and navigate to the directory
+```
+git clone git@github.com:isaac-souza/pagebuilder-vue3.git
+cd pagebuilder-vue3
+```
+2. Install the dependencies
+```
+npm install
+```
+3. Copy the sample .env file
+```
+cp .env.example .env
+```
+4. Start the dev server
+```
+npm run dev
+```
+5. The frontend should be available at
+```
+http://localhost:3000
+```
+
+## Testing
+
+Now you should be able to go to http://localhost:3000, access the login page and sign in into the app
 
 ## My development environment
 
