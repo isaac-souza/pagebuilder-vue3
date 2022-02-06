@@ -4,6 +4,46 @@ axios.defaults.withCredentials = true
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_BASE_URL
 
 const Api = {
+    fetchLandingPages: () => {
+        return request('GET', '/v1/landing-pages')
+    },
+
+    getLandingPage: (uuid) => {
+        return request('GET', '/v1/landing-pages/' + uuid)
+    },
+
+    getLandingPageBySlug: (slug) => {
+        return request('GET', '/v1/public/landing-pages/' + slug)
+    },
+
+    updatePages: (uuid, data) => {
+        return request('PUT', '/v1/public/landing-pages/' + uuid, {pages: data})
+    },
+
+    updateDraft: (uuid, data) => {
+        return request('PUT', '/v1/landing-pages/' + uuid + '/draft', {pages: data})
+    },
+
+    deleteLandingPage: (uuid) => {
+        return request('DELETE', '/v1/landing-pages/' + uuid)
+    },
+
+    createLandingPage: (data) => {
+        return request('POST', '/v1/landing-pages', data)
+    },
+
+    getImages: () => {
+        return request('GET', '/v1/images')
+    },
+
+    uploadImage: (data) => {
+        return request('POST', '/v1/images', data)
+    },
+
+    deleteImage: (uuid) => {
+        return request('DELETE', '/v1/images' + uuid)
+    },
+
     login: (credentials) => {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
