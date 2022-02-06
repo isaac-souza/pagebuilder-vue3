@@ -19,11 +19,19 @@
                                 <Icon styles="w-4 h-4" name="external-link"/>
                                 <span class="ml-1 font-normal text-xs">Preview</span>
                             </a>
-                            <button @click="save()" class="btn btn-sm btn-info">
+
+                            <button v-if="saving" class="btn btn-sm btn-info loading disabled">
+                                <span class="ml-1 font-normal text-xs">Saving...</span>
+                            </button>
+                            <button v-else @click="save()" class="btn btn-sm btn-info">
                                 <Icon styles="w-4 h-4" name="save"/>
                                 <span class="ml-1 font-normal text-xs">Save</span>
                             </button>
-                            <button @click="publish()" class="btn btn-sm btn-error">
+
+                            <button v-if="publishing" class="btn btn-sm btn-error loading disabled">
+                                <span class="ml-1 font-normal text-xs">Publishing...</span>
+                            </button>
+                            <button v-else @click="publish()" class="btn btn-sm btn-error">
                                 <Icon styles="w-5 h-5" name="upload"/>
                                 <span class="ml-1 font-normal text-xs">Publish</span>
                             </button>
@@ -88,6 +96,9 @@
 
             const groups = blocks.groups
             const draft = ref([])
+            
+            const saving = ref(false)
+            const publishing = ref(false)
 
             const cloneBlock = (block) => {
                 block.uuid = uuidv4()
@@ -112,26 +123,32 @@
             })
 
             const save = () => {
+                saving.value = true
+
                 store.dispatch(ACTION_UPDATE_DRAFT, {uuid: route.params.uuid, draft: draft.value})
                     .then(response => {
-                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'success', message: 'Página salva com sucesso!' }})
+                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'success', message: 'Draft saved successfully!' }})
+                        saving.value = false
                     })
                     .catch(error => {
                         store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'error', message: 'Problema ao tentar salvar a página, tente novamente.' }})
+                        saving.value = false
                     })
             }
 
             const publish = () => {
+                publishing.value = true
+
                 store.dispatch(ACTION_UPDATE_PAGES, {uuid: route.params.uuid, pages: draft.value})
                     .then(response => {
-                        // 
+                        publishing.value = false
                     })
                     .catch(error => {
-                        // 
+                        publishing.value = false
                     })
             }
 
-            return { groups, draft, cloneBlock, deleteBlock, save, publish, route }
+            return { groups, draft, cloneBlock, deleteBlock, save, publish, route, saving, publishing }
         },
     }
 </script>
