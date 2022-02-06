@@ -54,13 +54,16 @@ const Api = {
                                 localStorage.setItem('ez_landingpage_authenticated', true)
                             }
 
+                            log(response, 'POST - then - /login')
                             resolve(response)
                         })
                         .catch(error => {
+                            log(error, 'POST - catch - /login')
                             reject(error)
                         })
                 })
                 .catch(error => {
+                    log(error, 'GET - catch - /sanctum/csrf-cookie')
                     reject(error)
                 })
         })
@@ -69,11 +72,13 @@ const Api = {
     logout: () => {
         return new Promise((resolve, reject) => {
             axios.post('/logout')
-                .then(() => {
+                .then(response => {
                     localStorage.setItem('ez_landingpage_authenticated', false)
-                    resolve()
+                    log(response, 'POST - then - /logout')
+                    resolve(response)
                 })
                 .catch(error => {
+                    log(error, 'POST - catch - /logout')
                     reject(error)
                 })
         })
@@ -89,13 +94,16 @@ const Api = {
                                 localStorage.setItem('ez_landingpage_authenticated', true)
                             }
 
+                            log(response, 'POST - then - /register')
                             resolve(response)
                         })
                         .catch(error => {
+                            log(response, 'POST - catch - /register')
                             reject(error)
                         })
                 })
                 .catch(error => {
+                    log(error, 'POST - catch - /sanctum/csrf-cookie')
                     reject(error)
                 })
         })
