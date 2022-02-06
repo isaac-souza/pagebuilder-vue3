@@ -60,17 +60,15 @@
                 processing.value = true
                 error.value = false
 
-                const result = await Api.register(form.value)
-
-                if(result) {
-                    processing.value = false
-                    router.push({name: 'Dashboard'})
-                }
-                else {
-                    error.value = true
-                }
-
-                processing.value = false
+                Api.register(form.value)
+                    .then(() => {
+                        processing.value = false
+                        router.push({name: 'Dashboard'})
+                    })
+                    .catch(() => {
+                        error.value = true
+                        processing.value = false
+                    })
             }
 
             return { form, submit, processing, error }
