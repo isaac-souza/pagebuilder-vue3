@@ -265,7 +265,9 @@
                     Use our award-winning tools to help you maximize your profits. We've uncovered the correct recipe for converting visitors into customers.
                 </p>
                 <div class="flex justify-center mt-8 space-x-3">
-                    <a href="#" class="btn btn-secondary btn-lg tracking-wider">Sign Up Now</a>
+                    <router-link :to="{name: 'Register'}" class="btn btn-secondary btn-lg tracking-wider">
+                        Try it for free now!
+                    </router-link>
                 </div>
             </div>
         </section>
