@@ -41,7 +41,7 @@ const Api = {
     },
 
     deleteImage: (uuid) => {
-        return request('DELETE', '/v1/images' + uuid)
+        return request('DELETE', '/v1/images/' + uuid)
     },
 
     login: (credentials) => {
@@ -98,7 +98,7 @@ const Api = {
                             resolve(response)
                         })
                         .catch(error => {
-                            log(response, 'POST - catch - /register')
+                            log(error, 'POST - catch - /register')
                             reject(error)
                         })
                 })
