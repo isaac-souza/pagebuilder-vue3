@@ -17,7 +17,7 @@ const Api = {
     },
 
     updatePages: (uuid, data) => {
-        return request('PUT', '/v1/public/landing-pages/' + uuid, {pages: data})
+        return request('PUT', '/v1/landing-pages/' + uuid, {pages: data})
     },
 
     updateDraft: (uuid, data) => {
