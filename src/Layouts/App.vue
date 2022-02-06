@@ -1,67 +1,32 @@
 <template>
     <div>
-        <div class="navbar mb-2 shadow-lg">
-            <div class="flex-none px-2 mx-2">
-                <span class="text-lg font-bold">
-                    EZ LandingPage
-                </span>
-            </div>
-            <div class="flex-1 px-2 mx-2">
-                <div class="items-stretch hidden lg:flex">
-                    <router-link to="/app" class="btn btn-ghost rounded-btn">
-                        Dashboard
-                    </router-link>
-                </div>
-                <div class="items-stretch hidden lg:flex">
-                    <router-link to="/app/image-gallery" class="btn btn-ghost rounded-btn">
-                        Image Gallery
-                    </router-link>
-                </div>
-                <div class="items-stretch hidden lg:flex">
-                    <router-link to="/app/integrations" class="btn btn-ghost rounded-btn">
-                        Integrations
-                    </router-link>
-                </div>
-            </div>
-            <div class="flex justify-end">
-                <button @click="logout()" class="btn btn-ghost">
-                    Logout
-                </button>
-            </div>
-        </div>
+        <Navbar/>
+
         <div class="max-w-5xl mx-auto py-8 space-y-4">
             <Alert/>
             <slot/>
         </div>
+        
         <BreakPointHelper/>
     </div>
 </template>
 
 <script>
     import { defineComponent } from 'vue'
-    import { useRouter } from 'vue-router'
-    import Api from '../Utils/api'
 
+    import Navbar from '../Components/Navbar.vue'
     import BreakPointHelper from '../Components/BreakPointHelper.vue'
     import Alert from '../Components/Alert.vue'
 
     export default defineComponent({
         name: 'AppLayout',
         components: {
+            Navbar,
             BreakPointHelper,
             Alert,
         },
         setup() {
-            const router = useRouter()
-
-            const logout = () => {
-                Api.logout()
-                    .then(() => {
-                        router.push('/login')
-                    })
-            }
-
-            return { logout }
+            
         },
     })
 </script>
