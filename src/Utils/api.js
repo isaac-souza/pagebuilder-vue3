@@ -4,58 +4,61 @@ axios.defaults.withCredentials = true
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_BASE_URL
 
 const Api = {
-    login: async (credentials) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.post('/login', credentials)
+    login: (credentials) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.post('/login', credentials)
+                        .then(response => {
+                            if(response.status == 200) {
+                                localStorage.setItem('ez_landingpage_authenticated', true)
+                            }
 
-            if(response.status == 200) {
-                return true
-            }
-
-            return false
-        }
-        catch (error) {
-            return false
-        }
+                            resolve(response)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
-    logout: async () => {
-        try {
-            await axios.post('/logout')
-
-            return true
-        }
-        catch (error) {
-            return false
-        }
+    logout: () => {
+        return new Promise((resolve, reject) => {
+            axios.post('/logout')
+                .then(() => {
+                    localStorage.setItem('ez_landingpage_authenticated', false)
+                    resolve()
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
-    register: async (data) => {
-        try {
-            await axios.get('/sanctum/csrf-cookie')
-            const response = await axios.post('/register', data)
+    register: (data) => {
+        return new Promise((resolve, reject) => {
+            axios.get('/sanctum/csrf-cookie')
+                .then(() => {
+                    axios.post('/register', data)
+                        .then(response => {
+                            if(response.status == 200) {
+                                localStorage.setItem('ez_landingpage_authenticated', true)
+                            }
 
-            if(response.status == 201) {
-                return true
-            }
-
-            return false
-        }
-        catch (error) {
-            return false
-        }
-    },
-
-    isAuthenticated: async () => {
-        try {
-            const response = await axios.get('/v1/auth/check')
-            
-            return response.data.authenticated
-        }
-        catch (error) {
-            return false
-        }
+                            resolve(response)
+                        })
+                        .catch(error => {
+                            reject(error)
+                        })
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
     },
 
     fetchLandingPages: () => {
@@ -70,7 +73,7 @@ const Api = {
         })
     },
 
-    getLandingPage: async (uuid) => {
+    getLandingPage: (uuid) => {
         return new Promise((resolve, reject) => {
             axios.get('/v1/landing-pages/' + uuid)
                 .then(response => {
@@ -94,7 +97,7 @@ const Api = {
         })
     },
 
-    fetchAccount: async () => {
+    fetchAccount: () => {
         return new Promise((resolve, reject) => {
             axios.get('/v1/auth/account')
                 .then(response => {
@@ -118,7 +121,7 @@ const Api = {
         })
     },
 
-    updateDraft: async (uuid, data) => {
+    updateDraft: (uuid, data) => {
         return new Promise((resolve, reject) => {
             axios.put('/v1/landing-pages/' + uuid + '/draft', {pages: data})
                 .then(response => {
