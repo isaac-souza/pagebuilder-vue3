@@ -17,8 +17,6 @@ import CreateLandingPage from '../Pages/App/LandingPages/Create.vue'
 import ImageGallery from '../Pages/App/ImageGallery/Index.vue'
 
 import WebsiteHome from '../Pages/Public/Marketing/Home.vue'
-import WebsitePricing from '../Pages/Public/Marketing/Pricing.vue'
-import WebsiteContact from '../Pages/Public/Marketing/Contact.vue'
 
 const routes = [
     //
@@ -28,16 +26,6 @@ const routes = [
         path: '/',
         name: 'WebsiteHome',
         component: WebsiteHome,    
-    },
-    {
-        path: '/pricing',
-        name: 'WebsitePricing',
-        component: WebsitePricing,    
-    },
-    {
-        path: '/contact',
-        name: 'WebsiteContact',
-        component: WebsiteContact,    
     },
 
     //
