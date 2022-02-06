@@ -15,11 +15,11 @@ const groups = ref([
                 description: 'Image left',
                 thumbUrl: '/images/thumbs/v1/heroes/image-right.png',
                 data: {
-                    darkMode: true,
-                    title: 'Venda todo dia usando o Facebook ADS!!!',
-                    subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
-                    imageUrl: '/images/samples/v1/heros/ebook-cover.png',
-                    buttonText: 'Comprar Agora!!!',
+                    darkMode: false,
+                    title: 'Compeling title about your product!!!',
+                    subtitle: 'Describe the main benefit you product delivers to your customers.',
+                    imageUrl: '/images/samples/v1/heros/cover.png',
+                    buttonText: 'Buy NOW!!!',
                     buttonLink: 'https://google.com',
                 }
             },
@@ -32,9 +32,9 @@ const groups = ref([
                 description: 'Form left',
                 thumbUrl: '/images/thumbs/v1/heroes/form-right.png',
                 data: {
-                    darkMode: true,
-                    title: 'O melhor Ebook do Brasil sobre Facebook Ads!',
-                    subtitle: 'Voce precisa desse ebook se quiser vender no Facebook!!!',
+                    darkMode: false,
+                    title: 'Compeling title about your product!!!',
+                    subtitle: 'Describe the main benefit you product delivers to your customers.',
                     buttonText: 'I want a copy!!!',
                 }
             },
@@ -47,9 +47,9 @@ const groups = ref([
                 description: 'Video center',
                 thumbUrl: '/images/thumbs/v1/heroes/video-center.png',
                 data: {
-                    darkMode: true,
-                    title: 'Venda todo dia usando o Facebook ADS!!!',
-                    subtitle: 'Voce quer vender todos os dias usando o facebook Ads? Então voce precisa desse esbook!!!',
+                    darkMode: false,
+                    title: 'Compeling title about your product!!!',
+                    subtitle: 'Describe the main benefit you product delivers to your customers.',
                     youtubeVideoCode: '5DVDewOReoY',
                 }
             },
@@ -68,8 +68,8 @@ const groups = ref([
                 description: 'Grid 3x1',
                 thumbUrl: '/images/thumbs/v1/features/grid-3.png',
                 data: {
-                    darkMode: true,
-                    title: 'Os benefícios do seu produto aqui',
+                    darkMode: false,
+                    title: 'Main benefits',
                     list: [
                         {
                             uuid: uuidv4(),
@@ -96,21 +96,6 @@ const groups = ref([
                             title: 'Features 5',
                             description: 'Description of features 1 should go here, ideally no more than 50 lines'
                         },
-                        {
-                            uuid: uuidv4(),
-                            title: 'Features 6',
-                            description: 'Description of features 1 should go here, ideally no more than 50 lines'
-                        },
-                        {
-                            uuid: uuidv4(),
-                            title: 'Features 7',
-                            description: 'Description of features 1 should go here, ideally no more than 50 lines'
-                        },
-                        {
-                            uuid: uuidv4(),
-                            title: 'Features 8',
-                            description: 'Description of features 1 should go here, ideally no more than 50 lines'
-                        },
                     ]
                 }
             },
@@ -129,7 +114,7 @@ const groups = ref([
                 description: 'Image Left',
                 thumbUrl: '/images/thumbs/v1/authors/image-left.png',
                 data: {
-                    darkMode: true,
+                    darkMode: false,
                     title: 'About the author',
                     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis provident, itaque doloribus earum nostrum iste nesciunt excepturi neque eius, numquam alias eos, delectus quo illum eaque consequuntur consectetur! Sequi soluta porro, magni possimus a tempore quas rem commodi aut pariatur quaerat natus sunt, nihil voluptate maxime beatae atque assumenda similique!',
                     imageUrl: '/images/samples/v1/authors/sample.jpg'
@@ -151,10 +136,10 @@ const groups = ref([
                 thumbUrl: '/images/thumbs/v1/buy/simple.png',
                 data: {
                     darkMode: true,
-                    title: 'Disponível por tempo limitado!',
-                    subtitle: 'Esse ebook é tudo que você precisa para começar a vender online e construir uma renda passiva mensal que trabalha 24h por dia, 7 dias por semana automaticamente enquanto vocẽ dorme.',
+                    title: 'Secure you copy right NOW!',
+                    subtitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ex.',
                     buttonLink: 'https://google.com',
-                    buttonText: 'Comprar Agora!!!',
+                    buttonText: 'Buy NOW',
                 }
             },
         ]
@@ -173,32 +158,22 @@ const groups = ref([
                 thumbUrl: '/images/thumbs/v1/faq/list.png',
                 data: {
                     darkMode: false,
-                    title: 'Dúvidas mais Frequentes',
+                    title: 'Frequently Asked Questions',
                     list: [
                         {
                             uuid: uuidv4(),
-                            question: 'Question 1 goes here',
-                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                            question: 'Question 1',
+                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum!',
                         },
                         {
                             uuid: uuidv4(),
-                            question: 'Question 2 goes here',
-                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                            question: 'Question 2',
+                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum!',
                         },
                         {
                             uuid: uuidv4(),
-                            question: 'Question 3 goes here',
-                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
-                        },
-                        {
-                            uuid: uuidv4(),
-                            question: 'Question 4 goes here',
-                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
-                        },
-                        {
-                            uuid: uuidv4(),
-                            question: 'Question 5 goes here',
-                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum sit ex quidem neque atque iusto, impedit error? Cumque, obcaecati! Ratione, magni corporis!',
+                            question: 'Question 3',
+                            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sint enim autem quia minima saepe voluptatum!',
                         },
                     ]
                 }

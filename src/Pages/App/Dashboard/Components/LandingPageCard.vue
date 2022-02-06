@@ -4,8 +4,8 @@
             <img src="https://picsum.photos/id/1005/400/250" loading="lazy">
         </figure> 
         <div class="card-body p-4">
-            <h2 class="card-title text-base font-normal">{{ landingPage.name }}</h2> 
-            <div class="justify-end card-actions m-0">
+            <h2 class="card-title text-base font-normal m-0 p-0">{{ landingPage.name }}</h2> 
+            <div class="justify-end card-actions m-0 p-0">
                 <a :href="'/' + landingPage.slug" target="_blank" class="btn btn-square btn-sm btn-outline btn-primary">
                     <Icon name="external-link" styles="w-3 h-3"/>
                 </a>

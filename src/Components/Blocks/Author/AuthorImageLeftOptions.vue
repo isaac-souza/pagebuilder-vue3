@@ -8,29 +8,42 @@
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Título</span>
+                <span class="label-text">Title</span>
             </label>
             <input v-model="block.data.title" type="text" class="input input-bordered input-sm">
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Texto</span>
+                <span class="label-text">Description</span>
             </label>
             <textarea v-model="block.data.description" class="textarea h-36 textarea-bordered"></textarea>
         </div>
-        <ImageSelect v-model="block.data.imageUrl"/>
+        <div class="form-control">
+            <label class="label -mb-2">
+                <span class="label-text">Pick from the gallery</span>
+            </label>
+            <ImageSelect v-model="block.data.imageUrl"/>
+        </div>
+        <div class="form-control">
+            <label class="label -mb-2">
+                <span class="label-text">Or upload a new image</span>
+            </label>
+            <ImageUploadButton v-model="block.data.imageUrl" class="btn btn-sm btn-info btn-outline btn-block text-xs font-normal"/>
+        </div>
     </div>
 </template>
 
 <script>
     import { defineComponent, computed } from 'vue'
     import ImageSelect from '../../ImageSelect.vue'
+    import ImageUploadButton from '../../ImageUploadButton.vue'
 
     export default defineComponent({
         name: 'HeroImageLeftOptions',
         emits: ['update:modelValue'],
         components: {
             ImageSelect,
+            ImageUploadButton,
         },
         props: {
             modelValue: {

@@ -8,25 +8,25 @@
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Título</span>
+                <span class="label-text">Title</span>
             </label>
             <input v-model="block.data.title" type="text" class="input input-bordered input-sm">
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Subtítulo</span>
+                <span class="label-text">Subtitle</span>
             </label>
             <input v-model="block.data.subtitle" type="text" class="input input-bordered input-sm">
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Texto botão</span>
+                <span class="label-text">Button text</span>
             </label>
             <input v-model="block.data.buttonText" type="text" class="input input-bordered input-sm">
         </div>
         <div class="form-control">
             <label class="label -mb-2">
-                <span class="label-text">Link do botão</span>
+                <span class="label-text">Button link</span>
             </label>
             <input v-model="block.data.buttonLink" type="text" class="input input-bordered input-sm">
         </div>
