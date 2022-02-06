@@ -12,9 +12,9 @@ Users don't need to write a single line of code.
 
 ### Frontend
 
-1. [Vue.js 3](https://v3.vuejs.org/) + Javascript
+1. [Vue.js 3](https://v3.vuejs.org/) + [Vuex 4](https://vuex.vuejs.org/) + [Vue Router 4](https://router.vuejs.org/)
 2. [Vite.js](https://vitejs.dev/)
-3. [Tailwind CSS](https://tailwindcss.com/) + [Daisy UI](https://daisyui.com/)
+3. [Tailwind CSS 3](https://tailwindcss.com/) + [Daisy UI](https://daisyui.com/)
 5. [Sortable.js](https://github.com/SortableJS/vue.draggable.next)
 
 ### Backend
