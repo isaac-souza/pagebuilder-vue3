@@ -54,12 +54,12 @@
                 Api.login(form.value)
                     .then(() => {
                         router.push({name: 'Dashboard'})
+                        processing.value = false
                     })
                     .catch(() => {
                         error.value = true
+                        processing.value = false
                     })
-
-                processing.value = false
             }
 
             return { form, submit, error, processing }
