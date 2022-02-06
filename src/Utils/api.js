@@ -73,126 +73,93 @@ const Api = {
         })
     },
 
-    getLandingPage: (uuid) => {
+function request(method, endpoint, data = null, raw = false) {
+    if(method == 'GET') {
         return new Promise((resolve, reject) => {
-            axios.get('/v1/landing-pages/' + uuid)
+            axios.get(endpoint)
                 .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
+                    log(response, 'GET - then - ' + endpoint)
 
-    getLandingPageBySlug: (slug) => {
-        return new Promise((resolve, reject) => {
-            axios.get('/v1/public/landing-pages/' + slug)
-                .then(response => {
-                    resolve(response.data)
+                    if(raw) {
+                        resolve(response)
+                    }
+                    else {
+                        resolve(response.data)
+                    }
                 })
                 .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    fetchAccount: () => {
-        return new Promise((resolve, reject) => {
-            axios.get('/v1/auth/account')
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    updatePages: (uuid, data) => {
-        return new Promise((resolve, reject) => {
-            axios.put('/v1/landing-pages/' + uuid, {pages: data})
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    updateDraft: (uuid, data) => {
-        return new Promise((resolve, reject) => {
-            axios.put('/v1/landing-pages/' + uuid + '/draft', {pages: data})
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    deleteLandingPage: (uuid) => {
-        return new Promise((resolve, reject) => {
-            axios.delete('/v1/landing-pages/' + uuid)
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    createLandingPage: (data) => {
-        return new Promise((resolve, reject) => {
-            axios.post('/v1/landing-pages', data)
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    getImages: () => {
-        return new Promise((resolve, reject) => {
-            axios.get('/v1/images')
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    uploadImage: (data) => {
-        return new Promise((resolve, reject) => {
-            axios.post('/v1/images/', data)
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
-
-    deleteImage: (uuid) => {
-        return new Promise((resolve, reject) => {
-            axios.delete('/v1/images/' + uuid)
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
+                    log(error, 'GET - catch - ' + endpoint)
                     reject(error)
                 })
         })
     }
 
+    if(method == 'POST') {
+        return new Promise((resolve, reject) => {
+            axios.post(endpoint, data)
+                .then(response => {
+                    log(response, 'POST - then - ' + endpoint)
+
+                    if(raw) {
+                        resolve(response)
+                    }
+                    else {
+                        resolve(response.data)
+                    }
+                })
+                .catch(error => {
+                    log(error, 'POST - catch - ' + endpoint)
+                    reject(error)
+                })
+        })
+    }
+
+    if(method == 'PUT') {
+        return new Promise((resolve, reject) => {
+            axios.put(endpoint, data)
+                .then(response => {
+                    log(response, 'PUT - then - ' + endpoint)
+
+                    if(raw) {
+                        resolve(response)
+                    }
+                    else {
+                        resolve(response.data)
+                    }
+                })
+                .catch(error => {
+                    log(error, 'PUT - catch - ' + endpoint)
+                    reject(error)
+                })
+        })
+    }
+
+    if(method == 'DELETE') {
+        return new Promise((resolve, reject) => {
+            axios.delete(endpoint)
+                .then(response => {
+                    log(response, 'DELETE - then - ' + endpoint)
+
+                    if(raw) {
+                        resolve(response)
+                    }
+                    else {
+                        resolve(response.data)
+                    }
+                })
+                .catch(error => {
+                    log(error, 'DELETE - catch - ' + endpoint)
+                    reject(error)
+                })
+        })
+    }
+}
+
+function log(data, description) {
+    if(import.meta.env.VITE_APP_DEBUG == 'true') {
+        console.log(description)
+        console.log(data)
+    }
 }
 
 export default Api
