@@ -51,14 +51,13 @@
                 processing.value = true
                 error.value = false
 
-                const result = await Api.login(form.value)
-
-                if(result) {
-                    router.push({name: 'Dashboard'})
-                }
-                else {
-                    error.value = true
-                }
+                Api.login(form.value)
+                    .then(() => {
+                        router.push({name: 'Dashboard'})
+                    })
+                    .catch(() => {
+                        error.value = true
+                    })
 
                 processing.value = false
             }

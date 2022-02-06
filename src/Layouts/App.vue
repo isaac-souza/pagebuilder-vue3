@@ -54,12 +54,11 @@
         setup() {
             const router = useRouter()
 
-            const logout = async () => {
-                const result = await Api.logout()
-
-                if(result) {
-                    router.push('/login')
-                }
+            const logout = () => {
+                Api.logout()
+                    .then(() => {
+                        router.push('/login')
+                    })
             }
 
             return { logout }

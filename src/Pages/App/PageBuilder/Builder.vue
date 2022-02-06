@@ -98,15 +98,17 @@
                 draft.value.splice(index, 1)
             }
 
-            onMounted(async () => {
+            onMounted(() => {
                 let result = store.getters.findLandingPage(route.params.uuid)
                 
                 if(result == null) {
-                    await store.dispatch(ACTION_GET_LANDING_PAGES)
-                    result = store.getters.findLandingPage(route.params.uuid)
-                }
+                    store.dispatch(ACTION_GET_LANDING_PAGES)
+                        .then(() => {
+                            result = store.getters.findLandingPage(route.params.uuid)
 
-                draft.value = result.draft.main
+                            draft.value = result.draft.main
+                        })
+                }
             })
 
             const save = () => {
