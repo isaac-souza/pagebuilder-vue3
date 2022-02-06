@@ -159,7 +159,6 @@ export default createStore({
                         if(context.state.landingPages == null) {
                             context.dispatch(ACTION_GET_LANDING_PAGES)
                                 .then(() => {
-                                    context.commit(MUTATION_UPDATE_LANDING_PAGE, { landingPage: response.data })
                                     resolve(response)
                                 })
                                 .catch(error => {
@@ -184,7 +183,6 @@ export default createStore({
                         if(context.state.landingPages == null) {
                             context.dispatch(ACTION_GET_LANDING_PAGES)
                                 .then(() => {
-                                    context.commit(MUTATION_UPDATE_LANDING_PAGE, { landingPage: response.data })
                                     resolve(response)
                                 })
                                 .catch(error => {
