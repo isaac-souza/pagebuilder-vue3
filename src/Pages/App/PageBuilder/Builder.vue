@@ -111,7 +111,7 @@
 
             onMounted(() => {
                 let result = store.getters.findLandingPage(route.params.uuid)
-                
+
                 if(result == null) {
                     store.dispatch(ACTION_GET_LANDING_PAGES)
                         .then(() => {
@@ -120,18 +120,19 @@
                             draft.value = result.draft.main
                         })
                 }
+                else {
+                    draft.value = result.draft.main
+                }
             })
 
             const save = () => {
                 saving.value = true
 
                 store.dispatch(ACTION_UPDATE_DRAFT, {uuid: route.params.uuid, draft: draft.value})
-                    .then(response => {
-                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'success', message: 'Draft saved successfully!' }})
+                    .then(() => {
                         saving.value = false
                     })
-                    .catch(error => {
-                        store.dispatch(ACTION_SHOW_ALERT, { data: { type: 'error', message: 'Problema ao tentar salvar a página, tente novamente.' }})
+                    .catch(() => {
                         saving.value = false
                     })
             }
@@ -140,10 +141,10 @@
                 publishing.value = true
 
                 store.dispatch(ACTION_UPDATE_PAGES, {uuid: route.params.uuid, pages: draft.value})
-                    .then(response => {
+                    .then(() => {
                         publishing.value = false
                     })
-                    .catch(error => {
+                    .catch(() => {
                         publishing.value = false
                     })
             }
