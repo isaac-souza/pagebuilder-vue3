@@ -28,7 +28,6 @@
                     <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Close</button>
                     <p class="my-4 font-bold uppercase">Block options</p>
                     <component :is="block.optionsComponentName" v-model="block"/>
-                    <button @click="showDrawer = false" class="btn btn-sm btn-active mt-2">Close</button>
                 </ul>
             </div>
         </div>
