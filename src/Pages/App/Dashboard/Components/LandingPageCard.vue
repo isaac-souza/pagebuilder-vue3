@@ -12,7 +12,8 @@
                 <router-link :to="'/app/builder/' + landingPage.uuid + '/main'" class="btn btn-square btn-sm btn-outline btn-primary">
                     <Icon name="edit" styles="w-3 h-3"/>
                 </router-link>
-                <button @click="remove()" class="btn btn-square btn-sm btn-outline btn-error">
+                <button v-if="removing" class="btn btn-square btn-sm btn-error disabled loading"></button>
+                <button v-else @click="remove()" class="btn btn-square btn-sm btn-outline btn-error">
                     <Icon name="trash" styles="w-3 h-3"/>
                 </button>
             </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
+    import { defineComponent, ref } from 'vue'
     import { useStore } from 'vuex'
 
     import { 
@@ -44,18 +45,23 @@
         },
         setup(props) {
             const store = useStore()
+            const removing = ref(false)
 
             const remove = () => {
+                removing.value = true
+                
                 store.dispatch(ACTION_DELETE_LANDING_PAGE, props.landingPage.uuid)
-                    .then(response => {
+                    .then(() => {
+                        removing.value = false
                         store.dispatch(ACTION_SHOW_ALERT, { type: 'success', message: 'Página excluida com sucesso!' })
                     })
-                    .catch(error => {
+                    .catch(() => {
+                        removing.value = false
                         store.dispatch(ACTION_SHOW_ALERT, { type: 'error', message: 'Problema ao tentar excluir a página, tente novamente.' })
                     })
             }
 
-            return { remove }
+            return { remove, removing }
         },
     })
 </script>
