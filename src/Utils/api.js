@@ -107,19 +107,9 @@ const Api = {
                     reject(error)
                 })
         })
-    },
+    }
 
-    fetchLandingPages: () => {
-        return new Promise((resolve, reject) => {
-            axios.get('/v1/landing-pages')
-                .then(response => {
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-        })
-    },
+}
 
 function request(method, endpoint, data = null, raw = false) {
     if(method == 'GET') {
