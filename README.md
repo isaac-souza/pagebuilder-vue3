@@ -8,6 +8,10 @@ Each block makes available a set of options to easily customize its content.
 
 Users don't need to write a single line of code.
 
+## Video demo (click to go to YouTube)
+
+[![YouTube Demo Video](https://img.youtube.com/vi/4MfJ4UAkQjg/0.jpg)](https://www.youtube.com/watch?v=4MfJ4UAkQjg)
+
 ## The stack
 
 ### Frontend
