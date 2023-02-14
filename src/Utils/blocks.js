@@ -99,6 +99,33 @@ const groups = ref([
                     ]
                 }
             },
+            {
+                uuid: uuidv4(),
+                type: 'features',
+                model: 'grid-3-model2',
+                componentName: 'FeaturesGrid3Model2',
+                optionsComponentName: 'FeaturesGrid3Model2Options',
+                description: 'Grid 3x1 Model2',
+                thumbUrl: '/images/thumbs/v1/features/grid-3.png',
+                data: {
+                    darkMode: true,
+                    title: 'رژیم برتر',
+                    list: [
+                        {
+                            uuid: uuidv4(),
+                            title: 'Features 1',
+                            description: 'Description of features 1 should go here, ideally no more than 50 lines',
+                            color: "#ffffff"
+                        },
+                        {
+                            uuid: uuidv4(),
+                            title: 'Features 2',
+                            description: 'Description of features 2 should go here, ideally no more than 50 lines',
+                            color: "#ff0000"
+                        }
+                    ]
+                }
+            },
         ]
     },
     {

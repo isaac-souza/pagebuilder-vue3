@@ -53,6 +53,8 @@
 
     import FeaturesGrid3 from './Features/FeaturesGrid3.vue'
     import FeaturesGrid3Options from './Features/FeaturesGrid3Options.vue'
+    import FeaturesGrid3Model2 from './Features/FeaturesGrid3Model2.vue'
+    import FeaturesGrid3Model2Options from './Features/FeaturesGrid3Model2Options.vue'
     
     import Guarantee7Days from './Guarantees/Guarantee7Days.vue'
     import Guarantee7DaysOptions from './Guarantees/Guarantee7DaysOptions.vue'
@@ -95,6 +97,8 @@
 
             FeaturesGrid3,
             FeaturesGrid3Options,
+            FeaturesGrid3Model2,
+            FeaturesGrid3Model2Options,
 
             Guarantee7Days,
             Guarantee7DaysOptions,
