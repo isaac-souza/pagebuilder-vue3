@@ -5,52 +5,53 @@ axios.defaults.baseURL = import.meta.env.VITE_BACKEND_BASE_URL
 
 const Api = {
     fetchLandingPages: () => {
-        return request('GET', '/v1/landing-pages')
+        return request('GET', '/lb/api/v1/landing-pages')
     },
 
     getLandingPage: (uuid) => {
-        return request('GET', '/v1/landing-pages/' + uuid)
+        return request('GET', '/lb/api/v1/landing-pages/' + uuid)
     },
 
     getLandingPageBySlug: (slug) => {
-        return request('GET', '/v1/public/landing-pages/' + slug)
+        return request('GET', '/lb/api/v1/public/landing-pages/' + slug)
     },
 
     updatePages: (uuid, data) => {
-        return request('PUT', '/v1/landing-pages/' + uuid, {pages: data})
+        return request('PUT', '/lb/api/v1/landing-pages/' + uuid, {pages: data})
     },
 
     updateDraft: (uuid, data) => {
-        return request('PUT', '/v1/landing-pages/' + uuid + '/draft', {pages: data})
+        return request('PUT', '/lb/api/v1/landing-pages/' + uuid + '/draft', {pages: data})
     },
 
     deleteLandingPage: (uuid) => {
-        return request('DELETE', '/v1/landing-pages/' + uuid)
+        return request('DELETE', '/lb/api/v1/landing-pages/' + uuid)
     },
 
     createLandingPage: (data) => {
-        return request('POST', '/v1/landing-pages', data)
+        return request('POST', '/lb/api/v1/landing-pages', data)
     },
 
     getImages: () => {
-        return request('GET', '/v1/images')
+        return request('GET', '/lb/api/v1/images')
     },
 
     uploadImage: (data) => {
-        return request('POST', '/v1/images', data)
+        return request('POST', '/lb/api/v1/images', data)
     },
 
     deleteImage: (uuid) => {
-        return request('DELETE', '/v1/images/' + uuid)
+        return request('DELETE', '/lb/api/v1/images/' + uuid)
     },
 
     login: (credentials) => {
         return new Promise((resolve, reject) => {
             axios.get('/sanctum/csrf-cookie')
                 .then(() => {
-                    axios.post('/login', credentials)
+                    log('login');
+                    axios.post('/lb/login', credentials)
                         .then(response => {
-                            if(response.status == 200) {
+                            if(response.status <= 204) {
                                 localStorage.setItem('ez_landingpage_authenticated', true)
                             }
 
@@ -71,7 +72,7 @@ const Api = {
 
     logout: () => {
         return new Promise((resolve, reject) => {
-            axios.post('/logout')
+            axios.post('/lb/logout')
                 .then(response => {
                     localStorage.setItem('ez_landingpage_authenticated', false)
                     log(response, 'POST - then - /logout')
