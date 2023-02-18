@@ -48,9 +48,18 @@
                         processing.value = false
                     })
                     .catch(error => {
+                      let res = error.response;
+                      let errMessage = 'Error while trying to uploaded the image.';
+                      if (res.status === 422) {
+                        if (res.data.data.file) {
+                          let errFile = res.data.data.file;
+                          errMessage = errFile[0];
+                          console.log(errMessage);
+                        }
+                      }
                         store.dispatch(ACTION_SHOW_ALERT, {
                             type: 'error',
-                            message: 'Error while trying to uploaded the image.'
+                            message: errMessage
                         })
 
                         processing.value = false
